@@ -2,4 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/haskenfa/public_html/student-portal/
-    - /bin/cp * $DEPLOYPATH
+    #- /bin/cp * $DEPLOYPATH #this is for files only
+    - /bin/cp -R * $DEPLOYPATH
