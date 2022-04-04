@@ -170,7 +170,7 @@
             <h2>Contact Information <i class="fa fa-info"></i></h2>
             <input type="text" name="" id="" placeholder="Email ID" required>
             <input type="text" name="" id="" placeholder="Phone Number" required>
-            <textarea cols="30" rows="5" placeholder="Address" required></textarea>
+            <textarea cols="30" rows="3" placeholder="Address" required></textarea>
             <select name="" id="" required>
                 <option value="">Select LGA</option>
                 <option value="Gombe">Gombe</option>
@@ -194,14 +194,15 @@
 
         <form action="" id="form3">
             <h2>Sponsor Information <i class="fa fa-info"></i></h2>
-            <input type="text" name="" id="" placeholder="Surname" required>
-            <input type="text" name="" id="" placeholder="Middle name" required>
-            <input type="text" name="" id="" placeholder="First name" required>
-            <input type="date" name="" id="" placeholder="Birth date" required>
+            <input type="text" name="" id="" placeholder="Full name" required>
+            <input type="text" name="" id="" placeholder="Email ID" required>
+            <input type="text" name="" id="" placeholder="Phone Number" required>
+            <textarea cols="30" rows="3" placeholder="Address" required></textarea>
             <select name="" id="" required>
-                <option value="">Select gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
+                <option value="">Select Relationship</option>
+                <option value="Father">Father</option>
+                <option value="Brother">Brother</option>
+                <option value="Others">Others</option>
             </select>
 
             <div class="btn-box">
@@ -214,14 +215,15 @@
 
         <form action="" id="form4">
             <h2>Next of Kin Information <i class="fa fa-info"></i></h2>
-            <input type="text" name="" id="" placeholder="Surname" required>
-            <input type="text" name="" id="" placeholder="Middle name" required>
-            <input type="text" name="" id="" placeholder="First name" required>
-            <input type="date" name="" id="" placeholder="Birth date" required>
+            <input type="text" name="" id="" placeholder="Full name" required>
+            <input type="email" name="" id="" placeholder="Email ID" required>
+            <input type="number" name="" id="" placeholder="Phone Number" required>
+            <textarea cols="30" rows="3" placeholder="Address" required></textarea>
             <select name="" id="" required>
-                <option value="">Select gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
+                <option value="">Select Relationship</option>
+                <option value="Father">Father</option>
+                <option value="Brother">Brother</option>
+                <option value="Others">Others</option>
             </select>
 
             <div class="btn-box">
@@ -234,14 +236,14 @@
 
         <form action="" id="form5">
             <h2>Programme Information <i class="fa fa-info"></i></h2>
-            <input type="text" name="" id="" placeholder="Surname" required>
-            <input type="text" name="" id="" placeholder="Middle name" required>
-            <input type="text" name="" id="" placeholder="First name" required>
-            <input type="date" name="" id="" placeholder="Birth date" required>
+            <input type="text" name="" id="" placeholder="Program of study" required>
+            <input type="text" name="" id="" placeholder="Department" required>
+            <input type="text" name="" id="" placeholder="Faculty" required>
+            <input type="text" name="" id="" placeholder="Programme Duration" required>
             <select name="" id="" required>
-                <option value="">Select gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
+                <option value="">Select Mode of Attendance</option>
+                <option value="Full-time">Full-time</option>
+                <option value="Part-time">Part-time</option>
             </select>
 
             <div class="btn-box">
