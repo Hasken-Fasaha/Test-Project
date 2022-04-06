@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Biodata;
 
 class _BioDataController extends Controller
 {
@@ -34,7 +35,9 @@ class _BioDataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        return $request->all();
+        #return 'Data saved successfully';
     }
 
     /**

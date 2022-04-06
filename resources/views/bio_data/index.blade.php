@@ -143,18 +143,20 @@
 
 <body>
     <div class="container">
-        <form action="" id="form1">
+
+        <form id="form1" action="{{ route('bio_data.store') }}" method="POST">
+            @csrf
             <h2>Basic Information <i class="fa fa-info"></i></h2>
-            <input type="text" name="" id="" placeholder="Surname" required>
-            <input type="text" name="" id="" placeholder="Middle name" required>
-            <input type="text" name="" id="" placeholder="First name" required>
-            <input type="date" name="" id="" placeholder="Birth date" required>
-            <select name="" id="" required>
+            <input type="text" name="surname" id="" placeholder="Surname" required>
+            <input type="text" name="middlename" id="" placeholder="Middle name" required>
+            <input type="text" name="firstname" id="" placeholder="First name" required>
+            <input type="date" name="dob" id="" placeholder="Birth date" required>
+            <select name="gender" id="" required>
                 <option value="">Select gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
-            <select name="" id="" required>
+            <select name="marrital_status" id="" required>
                 <option value="">Select Marital Status</option>
                 <option value="Married">Married</option>
                 <option value="Single">Single</option>
@@ -166,7 +168,7 @@
 
         </form>
 
-        <form action="" id="form2">
+        <form id="form2" action="{{ route('bio_data.store') }}" method="POST">
             <h2>Contact Information <i class="fa fa-info"></i></h2>
             <input type="text" name="" id="" placeholder="Email ID" required>
             <input type="text" name="" id="" placeholder="Phone Number" required>
@@ -192,7 +194,7 @@
 
         </form>
 
-        <form action="" id="form3">
+        <form id="form3" action="{{ route('bio_data.store') }}" method="POST">
             <h2>Sponsor Information <i class="fa fa-info"></i></h2>
             <input type="text" name="" id="" placeholder="Full name" required>
             <input type="text" name="" id="" placeholder="Email ID" required>
@@ -213,7 +215,7 @@
 
         </form>
 
-        <form action="" id="form4">
+        <form id="form4" action="{{ route('bio_data.store') }}" method="POST">
             <h2>Next of Kin Information <i class="fa fa-info"></i></h2>
             <input type="text" name="" id="" placeholder="Full name" required>
             <input type="email" name="" id="" placeholder="Email ID" required>
@@ -234,7 +236,8 @@
 
         </form>
 
-        <form action="" id="form5">
+        <form id="form5" action="{{ route('bio_data.store') }}" method="POST">
+            {{-- @csrf --}}
             <h2>Programme Information <i class="fa fa-info"></i></h2>
             <input type="text" name="" id="" placeholder="Program of study" required>
             <input type="text" name="" id="" placeholder="Department" required>
@@ -249,7 +252,7 @@
             <div class="btn-box">
                 <button type="button" id="Back4">Back</button>
 
-                <button type="Submit">Submit</button>
+                <button type="Submit" id="LastStep">Submit</button>
             </div>
 
         </form>
@@ -352,7 +355,13 @@
             progress.style.width = "600px";
             p_text5.style.color = "#777";
         }
+
+        $("#LastStep").click(function(e) {
+            e.preventDefault();
+            //$("#form1").submit();
+        });
     </script>
+
 
 </body>
 
