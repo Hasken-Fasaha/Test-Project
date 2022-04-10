@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
+use Illuminate\Contracts\Auth\Authenticatable;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Program extends Model
+class Program extends \Eloquent implements Authenticatable
 {
-    use HasFactory;
+    use AuthenticatableTrait;
+    protected $table = 'programs';
+    public $incrementing = false;
+    protected $primaryKey = 'program_id';
+    protected $fillable = ['program_name','program_id','dept_id',];
 }
