@@ -12,7 +12,7 @@ class _GradeController extends Controller
 {
     
 	public function index() {
-		return view('grades.index');
+		return view('pages.grades.index');
 	}
 
 	public function fetchAll() {

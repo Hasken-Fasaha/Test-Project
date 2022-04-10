@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class _AdmissionController extends Controller {
 
 	public function index() {
-		return view('admissions.index');
+		return view('pages.admissions.index');
 	}
 
 	public function fetchAll() {
