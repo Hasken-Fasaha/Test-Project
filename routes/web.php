@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\_BiodataController;
+use App\Http\Controllers\_CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,15 @@ Route::controller(_BiodataController::class)->group(function(){
 
 });
 
+// Route::controller(_CourseController::class)->group(function(){
+//     Route::get('course','index')->name('course.index');
+//     Route::get('course/create','create')->name('course.create');
+//     Route::post('course/store', 'store')->name('course.store');
+//     Route::post('course/show', 'show')->name('course.show');
+
+// });
+
+Route::resource('course', _CourseController::class);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
