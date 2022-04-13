@@ -7,5 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
+<<<<<<< Updated upstream
     use HasFactory;
+=======
+    
+    protected $primaryKey = 'course_code';
+    protected $table ='courses';
+
+    protected $increasing = false;
+    protected $keyType = 'string';
+
+    protected $fillable =['course_code','course_title','credit_unit','program_id','semester','level'];
+
+
+>>>>>>> Stashed changes
 }
