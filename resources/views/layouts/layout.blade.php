@@ -89,7 +89,8 @@
 
     <!-- dashboard init -->
     <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}" ></script>
+    {{-- <script src="{{ asset('js/main.js') }}" ></script> --}}
+    <script src="{{ asset('js/course.js') }}" ></script>
     @if(\Session::has('success'))
     <script>
         const Toast = Swal.mixin({

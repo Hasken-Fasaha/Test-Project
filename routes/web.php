@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\_BiodataController;
+use App\Http\Controllers\_FacultyController;
+use App\Http\Controllers\_CourseController;
+use App\Http\Controllers\_ProgramController;
+use App\Http\Controllers\_DepartmentController;
 
 
 
@@ -9,24 +13,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/faculty', [App\Http\Controllers\_FacultyController::class, 'index'])->name('faculty');
-Route::get('/faculty/edit/{id}', [App\Http\Controllers\_FacultyController::class, 'edit']);
-Route::post('/faculty/edit', [App\Http\Controllers\_FacultyController::class, 'update'])->name('facultyupdate');
-Route::post('/faculty/create', [App\Http\Controllers\_FacultyController::class, 'store'])->name('facultycreate');
-Route::get('/faculty/delete/{id}', [App\Http\Controllers\_FacultyController::class, 'destroy'])->name('facultydestroy');
+
+Route::get('/course', [_CourseController::class, 'index'])->name('course');
+Route::get('/course/edit/{id}', [_CourseController::class, 'edit']);
+Route::post('/course/edit', [_CourseController::class, 'update'])->name('courseupdate');
+Route::post('/course/create', [_CourseController::class, 'store'])->name('coursecreate');
+Route::get('/course/delete/{id}', [_CourseController::class, 'destroy'])->name('coursedestroy');
+
+Route::get('/faculty', [_FacultyController::class, 'index'])->name('faculty');
+Route::get('/faculty/edit/{id}', [_FacultyController::class, 'edit']);
+Route::post('/faculty/edit', [_FacultyController::class, 'update'])->name('facultyupdate');
+Route::post('/faculty/create', [_FacultyController::class, 'store'])->name('facultycreate');
+Route::get('/faculty/delete/{id}', [_FacultyController::class, 'destroy'])->name('facultydestroy');
 
 
-Route::get('/department', [App\Http\Controllers\_DepartmentController::class, 'index'])->name('department');
-Route::get('/department/edit/{id}', [App\Http\Controllers\_DepartmentController::class, 'edit']);
-Route::post('/department/edit', [App\Http\Controllers\_DepartmentController::class, 'update'])->name('departmentupdate');
-Route::post('/department/create', [App\Http\Controllers\_DepartmentController::class, 'store'])->name('departmentcreate');
-Route::get('/department/delete/{id}', [App\Http\Controllers\_DepartmentController::class, 'destroy'])->name('departmentdestroy');
+Route::get('/department', [_DepartmentController::class, 'index'])->name('department');
+Route::get('/department/edit/{id}', [_DepartmentController::class, 'edit']);
+Route::post('/department/edit', [_DepartmentController::class, 'update'])->name('departmentupdate');
+Route::post('/department/create', [_DepartmentController::class, 'store'])->name('departmentcreate');
+Route::get('/department/delete/{id}', [_DepartmentController::class, 'destroy'])->name('departmentdestroy');
 
-Route::get('/programme', [App\Http\Controllers\_ProgramController::class, 'index'])->name('programme');
-Route::get('/programme/edit/{id}', [App\Http\Controllers\_ProgramController::class, 'edit']);
-Route::post('/programme/edit', [App\Http\Controllers\_ProgramController::class, 'update'])->name('programmeupdate');
-Route::post('/programme/create', [App\Http\Controllers\_ProgramController::class, 'store'])->name('programmecreate');
-Route::get('/programme/delete/{id}', [App\Http\Controllers\_ProgramController::class, 'destroy'])->name('programmedestroy');
+Route::get('/programme', [_ProgramController::class, 'index'])->name('programme');
+Route::get('/programme/edit/{id}', [_ProgramController::class, 'edit']);
+Route::post('/programme/edit', [_ProgramController::class, 'update'])->name('programmeupdate');
+Route::post('/programme/create', [_ProgramController::class, 'store'])->name('programmecreate');
+Route::get('/programme/delete/{id}', [_ProgramController::class, 'destroy'])->name('programmedestroy');
 
 
 Route::controller(_BiodataController::class)->group(function(){
