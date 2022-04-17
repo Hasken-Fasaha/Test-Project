@@ -1,47 +1,44 @@
 $(document).ready(function() {
-    $('#addcourse').click(function(e) {
+    $('#addsession').click(function(e) {
         e.preventDefault()
-        $('#courseModal').modal('show');
+        $('#sessionModal').modal('show');
     });
 
-    $('.courseedit').click(function(e) {
+    $('.sessionedit').click(function(e) {
         e.preventDefault()
         let mid = $(this).attr('data-id');
+        console.log(mid);
 
         
         $.ajax({
             type: 'GET',
             async: false,
-            url: '/course/edit/' + mid,
+            url: '/session/edit/' + mid,
             success: function(response) {
-                // console.log(response.course_title+$('#editcourse_code').attr('placeholder'))
-                $('#editcourse_code').val(response.course_code);
-                $('#editcourse_title').val(response.course_title);
-                $('#editcredit_unit').val(response.credit_unit);
-                $('#editsemester').val(response.semester);
-                $('#editprogram_id').val(response.program_id);
-                $('#editlevel').val(response.level);
+                console.log(response);
+                $('#editsession_name').val(response.session_name);
+                $('#editsession_id').val(response.session_id);
             },
             error: function(response) {
                 alert(response.responseText);
             }
         });
-        $('#courseeditModal').modal('show');
-    });
+        $('#sessioneditModal').modal('show');
+    }); 
 
    
 
-    $('.coursedelete').click(function(e) {
+    $('.sessiondelete').click(function(e) {
         e.preventDefault()
-        $('#coursedeletelinkmodal').attr('data-id', $(this).attr('data-id'));
-        $('#coursedeleteModal').modal('show');
+        $('#sessiondeletelinkmodal').attr('data-id', $(this).attr('data-id'));
+        $('#sessiondeleteModal').modal('show');
     });
 
-    $('#coursedeletelinkmodal').click(function() {
+    $('#sessiondeletelinkmodal').click(function() {
         $.ajax({
             type: 'GET',
             async: false,
-            url: '/course/delete/' + $(this).attr('data-id'),
+            url: '/session/delete/' + $(this).attr('data-id'),
             success: function(data) {
                 const Toast = Swal.mixin({
                     toast: true,
@@ -74,5 +71,5 @@ $(document).ready(function() {
     });
 
     
- 
+  
 });

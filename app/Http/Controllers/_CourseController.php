@@ -114,7 +114,6 @@ class _CourseController extends Controller
         ]);
         if(!empty($val)){
             Course::find($request->course_code)->update([
-                'faculty_name' => $request->facul_name,
                 'course_code' =>  $request->course_code,
                   'course_title' => $request->course_title,
        'credit_unit' =>  $request->credit_unit,

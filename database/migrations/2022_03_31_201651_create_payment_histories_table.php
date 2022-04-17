@@ -18,8 +18,8 @@ class CreatePaymentHistoriesTable extends Migration
             $table->integer('amount');
             $table->date('date');
             $table->string('status');
-            $table->string('trxt_id')->primary();
-            $table->timestamps();
+            $table->string('tranx_id')->primary();
+            $table->timestamps(); 
         });
     }
 

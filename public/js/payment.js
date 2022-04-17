@@ -1,10 +1,10 @@
 $(document).ready(function() {
-    $('#addcourse').click(function(e) {
+    $('#addpayment').click(function(e) {
         e.preventDefault()
-        $('#courseModal').modal('show');
+        $('#paymentModal').modal('show');
     });
 
-    $('.courseedit').click(function(e) {
+    $('.paymentedit').click(function(e) {
         e.preventDefault()
         let mid = $(this).attr('data-id');
 
@@ -12,36 +12,34 @@ $(document).ready(function() {
         $.ajax({
             type: 'GET',
             async: false,
-            url: '/course/edit/' + mid,
+            url: '/payment/edit/' + mid,
             success: function(response) {
-                // console.log(response.course_title+$('#editcourse_code').attr('placeholder'))
-                $('#editcourse_code').val(response.course_code);
-                $('#editcourse_title').val(response.course_title);
-                $('#editcredit_unit').val(response.credit_unit);
-                $('#editsemester').val(response.semester);
-                $('#editprogram_id').val(response.program_id);
-                $('#editlevel').val(response.level);
+                // console.log(response.payment_title+$('#editpayment_code').attr('placeholder'))
+                $('#editjamb_no').val(response.jamb_no);
+                $('#editamount').val(response.amount);
+                $('#editstatus').val(response.status);
+               
             },
             error: function(response) {
                 alert(response.responseText);
             }
         });
-        $('#courseeditModal').modal('show');
+        $('#paymenteditModal').modal('show');
     });
 
    
 
-    $('.coursedelete').click(function(e) {
+    $('.paymentdelete').click(function(e) {
         e.preventDefault()
-        $('#coursedeletelinkmodal').attr('data-id', $(this).attr('data-id'));
-        $('#coursedeleteModal').modal('show');
+        $('#paymentdeletelinkmodal').attr('data-id', $(this).attr('data-id'));
+        $('#paymentdeleteModal').modal('show');
     });
 
-    $('#coursedeletelinkmodal').click(function() {
+    $('#paymentdeletelinkmodal').click(function() {
         $.ajax({
             type: 'GET',
             async: false,
-            url: '/course/delete/' + $(this).attr('data-id'),
+            url: '/payment/delete/' + $(this).attr('data-id'),
             success: function(data) {
                 const Toast = Swal.mixin({
                     toast: true,
