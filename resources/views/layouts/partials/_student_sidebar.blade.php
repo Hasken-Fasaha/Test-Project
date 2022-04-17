@@ -18,14 +18,14 @@
                             </li>
 
                             <li>
-                                <a href="{{route('profile')}}" class="waves-effect">
+                                <a href="profile.php" class="waves-effect">
                                     <i class="bx bx-user"></i>
                                     <span key="t-layouts">My Profile</span>
                                 </a> 
                             </li>
 
                             <li>
-                                <a href="{{route('profile')}}" class="waves-effect">
+                                <a href="admissionletter.php?jambno=<?php// echo $_SESSION['jamb_no']; ?>" class="waves-effect">
                                     <i class="bx bx-printer"></i>
                                     <span key="t-layouts">Print Admission Letter</span>
                                 </a> 
