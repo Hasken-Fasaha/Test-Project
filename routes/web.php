@@ -105,7 +105,7 @@ Route::prefix('students')->group(function () {
 });
 
  
- });
+ 
  
     Route::get('/biodata', [_BiodataController::class, 'index'])->name('biodata');
     Route::get('/biodata/edit/{id}', [_BiodataController::class, 'edit']);
