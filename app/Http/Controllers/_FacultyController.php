@@ -53,7 +53,8 @@ class _FacultyController extends Controller
                 }else{
                     return  redirect('/faculty')->with('error', 'Faculty Not Added!');
                 }
-        }else{
+        }
+        else{
             return  redirect('/faculty')->with('error', 'Faculty Already Exist!');
         }
     }
