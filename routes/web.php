@@ -81,14 +81,14 @@ Route::controller(_BiodataController::class)->group(function(){
 
 Route::prefix('students')->group(function () {
     
-    Route::get('/admissions', [_AdmissionController::class, 'index']);
+    Route::get('/admissions', [_AdmissionController::class, 'index'])->name('admissions.index');
     Route::post('/admission/store', [_AdmissionController::class, 'store'])->name('admission.store');
     Route::get('/admissions/fetchAll', [_AdmissionController::class, 'fetchAll'])->name('admissions.fetchAll');
     Route::delete('/admission/delete', [_AdmissionController::class, 'delete'])->name('admission.delete');
     Route::get('/admission/edit', [_AdmissionController::class, 'edit'])->name('admission.edit');
     Route::post('/admission/update', [_AdmissionController::class, 'update'])->name('admission.update');
 
-    Route::get('/grades', [_GradeController::class, 'index']);
+    Route::get('/grades', [_GradeController::class, 'index'])->name('grades.index');
     Route::post('/grade/store', [_GradeController::class, 'store'])->name('grade.store');
     Route::get('/grades/fetchAll', [_GradeController::class, 'fetchAll'])->name('grades.fetchAll');
     Route::delete('/grade/delete', [_GradeController::class, 'delete'])->name('grade.delete');

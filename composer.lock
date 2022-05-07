@@ -1123,18 +1123,6 @@
         },
         {
             "name": "laravel/framework",
-<<<<<<< Updated upstream
-            "version": "v8.83.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/framework.git",
-                "reference": "dffcec0cb686eafaa3b8f33db11da2cd9d69af1c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/dffcec0cb686eafaa3b8f33db11da2cd9d69af1c",
-                "reference": "dffcec0cb686eafaa3b8f33db11da2cd9d69af1c",
-=======
             "version": "v8.83.11",
             "source": {
                 "type": "git",
@@ -1145,7 +1133,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/d85c34179f209977043502441f9e44ca432a14b4",
                 "reference": "d85c34179f209977043502441f9e44ca432a14b4",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -1305,22 +1292,6 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-<<<<<<< Updated upstream
-            "time": "2022-03-29T14:41:02+00:00"
-        },
-        {
-            "name": "laravel/sanctum",
-            "version": "v2.15.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/sanctum.git",
-                "reference": "5be160413b6f37dcf8758663edeab12d0e806f56"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sanctum/zipball/5be160413b6f37dcf8758663edeab12d0e806f56",
-                "reference": "5be160413b6f37dcf8758663edeab12d0e806f56",
-=======
             "time": "2022-05-03T14:47:00+00:00"
         },
         {
@@ -1335,7 +1306,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/sanctum/zipball/31fbe6f85aee080c4dc2f9b03dc6dd5d0ee72473",
                 "reference": "31fbe6f85aee080c4dc2f9b03dc6dd5d0ee72473",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -1387,11 +1357,7 @@
                 "issues": "https://github.com/laravel/sanctum/issues",
                 "source": "https://github.com/laravel/sanctum"
             },
-<<<<<<< Updated upstream
-            "time": "2022-03-28T13:53:05+00:00"
-=======
             "time": "2022-04-08T13:39:49+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "laravel/serializable-closure",
@@ -3406,18 +3372,6 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-<<<<<<< Updated upstream
-            "version": "v3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "c726b64c1ccfe2896cb7df2e1331c357ad1c8ced"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/c726b64c1ccfe2896cb7df2e1331c357ad1c8ced",
-                "reference": "c726b64c1ccfe2896cb7df2e1331c357ad1c8ced",
-=======
             "version": "v3.0.1",
             "source": {
                 "type": "git",
@@ -3428,7 +3382,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/26954b3d62a6c5fd0ea8a2a00c0353a14978d05c",
                 "reference": "26954b3d62a6c5fd0ea8a2a00c0353a14978d05c",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -3466,11 +3419,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-<<<<<<< Updated upstream
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.0.0"
-=======
                 "source": "https://github.com/symfony/deprecation-contracts/tree/v3.0.1"
->>>>>>> Stashed changes
             },
             "funding": [
                 {
@@ -3486,11 +3435,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< Updated upstream
-            "time": "2021-11-01T23:48:49+00:00"
-=======
             "time": "2022-01-02T09:55:41+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "symfony/error-handler",
@@ -3648,18 +3593,6 @@
         },
         {
             "name": "symfony/event-dispatcher-contracts",
-<<<<<<< Updated upstream
-            "version": "v3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/event-dispatcher-contracts.git",
-                "reference": "aa5422287b75594b90ee9cd807caf8f0df491385"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/aa5422287b75594b90ee9cd807caf8f0df491385",
-                "reference": "aa5422287b75594b90ee9cd807caf8f0df491385",
-=======
             "version": "v3.0.1",
             "source": {
                 "type": "git",
@@ -3670,7 +3603,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/7bc61cc2db649b4637d331240c5346dcc7708051",
                 "reference": "7bc61cc2db649b4637d331240c5346dcc7708051",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -3720,11 +3652,7 @@
                 "standards"
             ],
             "support": {
-<<<<<<< Updated upstream
-                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v3.0.0"
-=======
                 "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v3.0.1"
->>>>>>> Stashed changes
             },
             "funding": [
                 {
@@ -3740,11 +3668,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< Updated upstream
-            "time": "2021-07-15T12:33:35+00:00"
-=======
             "time": "2022-01-02T09:55:41+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "symfony/finder",
@@ -5048,18 +4972,6 @@
         },
         {
             "name": "symfony/service-contracts",
-<<<<<<< Updated upstream
-            "version": "v2.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "d664541b99d6fb0247ec5ff32e87238582236204"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/d664541b99d6fb0247ec5ff32e87238582236204",
-                "reference": "d664541b99d6fb0247ec5ff32e87238582236204",
-=======
             "version": "v2.5.1",
             "source": {
                 "type": "git",
@@ -5070,17 +4982,12 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/service-contracts/zipball/24d9dc654b83e91aa59f9d167b131bc3b5bea24c",
                 "reference": "24d9dc654b83e91aa59f9d167b131bc3b5bea24c",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
-<<<<<<< Updated upstream
-                "psr/container": "^1.1"
-=======
                 "psr/container": "^1.1",
                 "symfony/deprecation-contracts": "^2.1|^3"
->>>>>>> Stashed changes
             },
             "conflict": {
                 "ext-psr": "<1.1|>=2"
@@ -5091,7 +4998,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.4-dev"
+                    "dev-main": "2.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -5128,11 +5035,7 @@
                 "standards"
             ],
             "support": {
-<<<<<<< Updated upstream
-                "source": "https://github.com/symfony/service-contracts/tree/v2.4.1"
-=======
                 "source": "https://github.com/symfony/service-contracts/tree/v2.5.1"
->>>>>>> Stashed changes
             },
             "funding": [
                 {
@@ -5148,22 +5051,6 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< Updated upstream
-            "time": "2021-11-04T16:37:19+00:00"
-        },
-        {
-            "name": "symfony/string",
-            "version": "v6.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/string.git",
-                "reference": "522144f0c4c004c80d56fa47e40e17028e2eefc2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/522144f0c4c004c80d56fa47e40e17028e2eefc2",
-                "reference": "522144f0c4c004c80d56fa47e40e17028e2eefc2",
-=======
             "time": "2022-03-13T20:07:29+00:00"
         },
         {
@@ -5178,7 +5065,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/string/zipball/ac0aa5c2282e0de624c175b68d13f2c8f2e2649d",
                 "reference": "ac0aa5c2282e0de624c175b68d13f2c8f2e2649d",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -5234,11 +5120,7 @@
                 "utf8"
             ],
             "support": {
-<<<<<<< Updated upstream
-                "source": "https://github.com/symfony/string/tree/v6.0.3"
-=======
                 "source": "https://github.com/symfony/string/tree/v6.0.8"
->>>>>>> Stashed changes
             },
             "funding": [
                 {
@@ -5254,22 +5136,6 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< Updated upstream
-            "time": "2022-01-02T09:55:41+00:00"
-        },
-        {
-            "name": "symfony/translation",
-            "version": "v6.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/translation.git",
-                "reference": "f6639cb9b5e0c57fe31e3263b900a77eedb0c908"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/f6639cb9b5e0c57fe31e3263b900a77eedb0c908",
-                "reference": "f6639cb9b5e0c57fe31e3263b900a77eedb0c908",
-=======
             "time": "2022-04-22T08:18:02+00:00"
         },
         {
@@ -5284,7 +5150,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/translation/zipball/3d38cf8f8834148c4457681d539bc204de701501",
                 "reference": "3d38cf8f8834148c4457681d539bc204de701501",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -5350,11 +5215,7 @@
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "support": {
-<<<<<<< Updated upstream
-                "source": "https://github.com/symfony/translation/tree/v6.0.6"
-=======
                 "source": "https://github.com/symfony/translation/tree/v6.0.8"
->>>>>>> Stashed changes
             },
             "funding": [
                 {
@@ -5370,22 +5231,6 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< Updated upstream
-            "time": "2022-03-02T12:58:14+00:00"
-        },
-        {
-            "name": "symfony/translation-contracts",
-            "version": "v3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/translation-contracts.git",
-                "reference": "1b6ea5a7442af5a12dba3dbd6d71034b5b234e77"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/1b6ea5a7442af5a12dba3dbd6d71034b5b234e77",
-                "reference": "1b6ea5a7442af5a12dba3dbd6d71034b5b234e77",
-=======
             "time": "2022-04-22T08:18:02+00:00"
         },
         {
@@ -5400,7 +5245,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/c4183fc3ef0f0510893cbeedc7718fb5cafc9ac9",
                 "reference": "c4183fc3ef0f0510893cbeedc7718fb5cafc9ac9",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -5449,11 +5293,7 @@
                 "standards"
             ],
             "support": {
-<<<<<<< Updated upstream
-                "source": "https://github.com/symfony/translation-contracts/tree/v3.0.0"
-=======
                 "source": "https://github.com/symfony/translation-contracts/tree/v3.0.1"
->>>>>>> Stashed changes
             },
             "funding": [
                 {
@@ -5469,11 +5309,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< Updated upstream
-            "time": "2021-09-07T12:43:40+00:00"
-=======
             "time": "2022-01-02T09:55:41+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "symfony/var-dumper",
@@ -6345,18 +6181,6 @@
         },
         {
             "name": "laravel/sail",
-<<<<<<< Updated upstream
-            "version": "v1.13.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/sail.git",
-                "reference": "b00f1b64afff9c16355d23bb1e0f83a7ea9bbb7e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/b00f1b64afff9c16355d23bb1e0f83a7ea9bbb7e",
-                "reference": "b00f1b64afff9c16355d23bb1e0f83a7ea9bbb7e",
-=======
             "version": "v1.14.1",
             "source": {
                 "type": "git",
@@ -6367,7 +6191,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/sail/zipball/9a7348dedfccc894718a21f71c09d669747e3f33",
                 "reference": "9a7348dedfccc894718a21f71c09d669747e3f33",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -6414,11 +6237,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-<<<<<<< Updated upstream
-            "time": "2022-03-23T12:35:34+00:00"
-=======
             "time": "2022-05-02T13:58:40+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "mockery/mockery",

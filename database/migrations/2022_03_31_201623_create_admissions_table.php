@@ -18,6 +18,7 @@ class CreateAdmissionsTable extends Migration
             $table->string('jamb_no');
             $table->string('email');
             $table->integer('jamb_score');
+            $table->string('program_id');
             $table->date('dob');
             $table->timestamps();
         });

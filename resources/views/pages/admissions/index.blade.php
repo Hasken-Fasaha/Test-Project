@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
-    <div class="container py-5">
-        <div class="row my-5">
+    <div class="container">
+        <div class="row">
             <div class="col-lg-12">
                 <div class="card shadow">
                     <div class="card-header bg-secondary d-flex justify-content-between align-items-center">
