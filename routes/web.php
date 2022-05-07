@@ -13,7 +13,7 @@ use App\Http\Controllers\_SessionController;
 use App\Http\Controllers\_PaymentHistoryController;
 use App\Http\Controllers\_StudentController;
 use App\Http\Controllers\_ProfileController;
-
+//Hello new changes
 
 Route::get('/', function () {
     return view('welcome');
