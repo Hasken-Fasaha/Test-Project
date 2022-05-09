@@ -12,7 +12,9 @@ use App\Http\Controllers\_DepartmentController;
 use App\Http\Controllers\_SessionController;
 use App\Http\Controllers\_PaymentHistoryController;
 use App\Http\Controllers\_StudentController;
-use App\Http\Controllers\_ProfileController;
+use App\Http\Controllers\_ProfileController; 
+use App\Http\Controllers\_LandingPageController; 
+use App\Http\Controllers\_ApplicationController; 
 
 
 Route::get('/', function () {
@@ -101,6 +103,19 @@ Route::prefix('students')->group(function () {
     Route::delete('/result/delete', [_AdmissionController::class, 'delete'])->name('result.delete');
     Route::get('/result/edit', [_AdmissionController::class, 'edit'])->name('result.edit');
     Route::post('/result/update', [_AdmissionController::class, 'update'])->name('result.update');
+    
+});
+
+Route::prefix('student')->group(function () {
+    
+    Route::get('/application', [_ApplicationController::class, 'index'])->name('application.index');
+    Route::post('/application/store', [_ApplicationController::class, 'store'])->name('application.store');
+    /* Route::get('/admissions/fetchAll', [_ApplicationController::class, 'fetchAll'])->name('admissions.fetchAll');
+    Route::delete('/admission/delete', [_ApplicationController::class, 'delete'])->name('admission.delete'); */
+    Route::get('/application/edit', [_ApplicationController::class, 'edit'])->name('application.edit');
+    Route::post('/application/update', [_ApplicationController::class, 'update'])->name('application.update'); 
+
+    Route::get('/landing-page', [_LandingPageController::class, 'index'])->name('landing.index');
     
 });
 
