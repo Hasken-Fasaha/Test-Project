@@ -14,7 +14,13 @@ class Admission extends Model
                             'jamb_no', 
                             'email', 
                             'jamb_score', 
-                            'dob'
+                            'dob',
+                            'program_id'
                           ];
+
+
+    public function programme(){
+        return $this->belongsTo(Program::class, 'program_id');
+    }
 
 }

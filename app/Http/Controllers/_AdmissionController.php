@@ -6,15 +6,17 @@ use App\Models\Admission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Program;
 
 class _AdmissionController extends Controller {
 
 	public function index() {
-		return view('pages.admissions.index');
+        $programmes= Program::all();
+		return view('pages.admissions.index',compact('programmes'));
 	}
 
 	public function fetchAll() {
-		$admissions = Admission::orderBy('email', 'asc')->get();
+		$admissions = Admission::with('programme')->orderBy('email', 'asc')->get();
 		$output = '';
 		if ($admissions->count() > 0) {
 			$output .= '<table class="table table-striped table-sm text-center align-middle">
@@ -24,6 +26,7 @@ class _AdmissionController extends Controller {
                 <th>Email</th>
                 <th>JAMB No.</th>
                 <th>JAMB Score</th>
+                <th>Programme</th>
                 <th>Birth Date</th>
                 <th>Action</th>
               </tr>
@@ -35,6 +38,7 @@ class _AdmissionController extends Controller {
                 <td>' . $admission->email . '</td>
                 <td>' . $admission->jamb_no . '</td>
                 <td>' . $admission->jamb_score . '</td>
+                <td>' . $admission->programme->program_name . '</td>
                 <td>' . $admission->dob . '</td>
                 <td>
                   <a href="#" id="' . $admission->id . '" class="text-success mx-1 editIcon" data-bs-toggle="modal" data-bs-target="#editAdmissionModal"><i class="bi-pencil-square h4"></i></a>
@@ -56,6 +60,7 @@ class _AdmissionController extends Controller {
             'jamb_score'=>'required|numeric|max:400|min:1',
             'email'=>'required|email|max:191',
             'dob'=>'required|date',
+            'program_id'=>'required',
         ]);
         
         if($validator->fails())
@@ -71,7 +76,12 @@ class _AdmissionController extends Controller {
             'jamb_score' => $request->jamb_score, 
             'email' => $request->email, 
             'dob' => $request->dob, 
+            'program_id' => $request->program_id, 
         ];
+
+        //return $admission;
+        //dd($admission);
+
 		Admission::create($admission);
 		return response()->json([
 			'status' => 200,
@@ -107,7 +117,8 @@ class _AdmissionController extends Controller {
             'jamb_no' => $request->jamb_no, 
             'jamb_score' => $request->jamb_score, 
             'email' => $request->email, 
-            'dob' => $request->dob
+            'dob' => $request->dob,
+            //'program_id' => $request->program_id, 
                 ];
 
 		$application->update($data);

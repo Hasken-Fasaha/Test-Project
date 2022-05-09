@@ -27,6 +27,17 @@
                         <input type="email" name="email" class="form-control" placeholder="Email" required>
                     </div>
                     <div class="my-2">
+                        <label for="programme">Programmme</label>
+                        <select name="program_id" id="program_id" class="form-control" required>
+                            <option value="">Select Programme</option>
+                            @foreach ($programmes as $programme)
+                                <option value="{{ $programme->program_id }}">{{ $programme->program_name }}</option>
+                            @endforeach
+
+                        </select>
+
+                    </div>
+                    <div class="my-2">
                         <label for="dob">Birth Date</label>
                         <input type="date" name="dob" id="dob" class="form-control" placeholder="Birth Date" required>
                     </div>

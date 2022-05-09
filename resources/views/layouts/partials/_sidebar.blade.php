@@ -18,44 +18,80 @@
                             </li>
 
                             <li>
-                                <a href="{{route('profile')}}" class="waves-effect">
+                                <a href="{{ route('profile') }}" class="waves-effect">
                                     <i class="bx bx-user"></i>
-                                    <span key="t-layouts">My Profile</span>
-                                </a> 
+                                    <span key="t-layouts">New Application</span>
+                                </a>
                             </li>
 
                             <li>
-                                <a href="{{route('profile')}}" class="waves-effect">
+                                <a href="{{ route('profile') }}" class="waves-effect">
                                     <i class="bx bx-printer"></i>
                                     <span key="t-layouts">Print Admission Letter</span>
-                                </a> 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('faculty') }}" class="waves-effect">
+                                    <i class="bx bx-file"></i>
+                                    <span key="t-layouts">Manage Faculties</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('department') }}" class="waves-effect">
+                                    <i class="bx bx-file"></i>
+                                    <span key="t-layouts">Manage Departments</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('programme') }}" class="waves-effect">
+                                    <i class="bx bx-file"></i>
+                                    <span key="t-layouts">Manage Programmes</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admissions.index') }}" class="waves-effect">
+                                    <i class="bx bx-file"></i>
+                                    <span key="t-layouts">Manage Admissions</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('course') }}" class="waves-effect">
+                                    <i class="bx bx-file"></i>
+                                    <span key="t-layouts">Manage Courses</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('grades.index') }}" class="waves-effect">
+                                    <i class="bx bx-file"></i>
+                                    <span key="t-layouts">Manage Grades</span>
+                                </a>
                             </li>
 
                             <li>
                                 <a href="#" class="waves-effect">
                                     <i class="bx bx-user"></i>
                                     <span key="t-layouts">Student's Handbook</span>
-                                </a> 
+                                </a>
                             </li>
 
                             <li>
                                 <a href="#" class="waves-effect">
                                     <i class="bx bx-printer"></i>
                                     <span key="t-layouts">Print Result</span>
-                                </a> 
+                                </a>
                             </li>
                             <li>
                                 <a href="#" class="waves-effect">
                                     <i class="bx bx-user"></i>
                                     <span key="t-layouts">Medical Report</span>
-                                </a> 
+                                </a>
                             </li>
 
                             <li>
                                 <a href="#" class="waves-effect">
                                     <i class="bx bx-printer"></i>
                                     <span key="t-layouts">News</span>
-                                </a> 
+                                </a>
                             </li>
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -68,22 +104,22 @@
                                 </ul>
                             </li>
 
-                     
 
-                           
 
-                           
 
-                         
 
-                            
 
-                           
 
-                            
-                           
 
-                           
+
+
+
+
+
+
+
+
+
 
                         </ul>
                     </div>
