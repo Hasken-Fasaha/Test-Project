@@ -1242,6 +1242,7 @@
     <script src="{{ asset('js/session.js') }}"></script>
     <script src="{{ asset('js/payment.js') }}"></script>
     <script src="{{ asset('js/profile.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
 
 
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdmissionsTable extends Migration
+class CreateJambsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,13 @@ class CreateAdmissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('admissions', function (Blueprint $table) {
+        Schema::create('jambs', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('sur_name');
-            $table->string('other_name');
+            $table->string('phone_no');
             $table->string('jamb_no');
-            $table->string('email');
-            $table->integer('jamb_score');
-            $table->string('program_id');// ,
-           
-            $table->date('dob');
+            $table->string('dob');
+
+
             $table->timestamps();
         });
     }
@@ -35,6 +31,6 @@ class CreateAdmissionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admissions');
+        Schema::dropIfExists('jambs');
     }
 }
