@@ -56,6 +56,9 @@ class _AdmissionController extends Controller {
 
 	public function store(Request $request) {
         $validator = Validator::make($request->all(), [
+            'first_name'=>'required',
+            'sur_name'=>'required',
+            'other_name'=>'required',
             'jamb_no'=> 'required|max:10',
             'jamb_score'=>'required|numeric|max:400|min:1',
             'email'=>'required|email|max:191',
@@ -72,6 +75,9 @@ class _AdmissionController extends Controller {
         }
 
 		$admission = [
+            'first_name'=>$request->first_name,
+            'sur_name'=>$request->sur_name,
+            'other_name'=>$request->other_name,
             'jamb_no' => $request->jamb_no, 
             'jamb_score' => $request->jamb_score, 
             'email' => $request->email, 

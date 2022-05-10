@@ -11,11 +11,15 @@ class Admission extends Model
 
     protected $table = 'admissions';
     protected $fillable = [
-                            'jamb_no', 
+                            'first_name',
+                            'sur_name',
+                            'other_name',
+                            'jamb_no',
                             'email', 
                             'jamb_score', 
                             'dob',
                             'program_id'
+
                           ];
 
 
