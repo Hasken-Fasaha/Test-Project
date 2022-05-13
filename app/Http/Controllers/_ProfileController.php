@@ -17,6 +17,12 @@ class _ProfileController extends Controller
         return view('pages.profile.index');
     }
 
+    public function paymentRedirect($student)
+    {
+        //
+        return view('pages.profile.index',compact('$student'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

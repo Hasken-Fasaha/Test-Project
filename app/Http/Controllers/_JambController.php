@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Jamb;
 use Illuminate\Http\Request;
 
+
 class _JambController extends Controller
 {
     /**
@@ -15,7 +16,9 @@ class _JambController extends Controller
     public function index()
     {
         //
+
     }
+
 
     /**
      * Show the form for creating a new resource.

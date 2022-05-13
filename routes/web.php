@@ -61,6 +61,9 @@ Route::get('/profile/edit/{id}', [_ProfileController::class, 'edit']);
 Route::post('/profile/edit', [_ProfileController::class, 'update'])->name('profileupdate');
 Route::post('/profile/create', [_ProfileController::class, 'store'])->name('profilecreate');
 Route::get('/profile/delete/{id}', [_ProfileController::class, 'destroy'])->name('profiledestroy');
+Route::get('/profile/delete/{id}', [_ProfileController::class, 'destroy'])->name('profiledestroy');
+//
+//paymentRedirect
 
 
 Route::get('/student', [_StudentController::class, 'index'])->name('student');
@@ -133,6 +136,7 @@ Route::prefix('student')->group(function () {
     Route::post('/session/edit',[_SessionController::class, 'update'])->name('sessionupdate');
     Route::post('/session/create', [_SessionController::class, 'store'])->name('sessioncreate');
     Route::get('/session/delete/{id}', [_SessionController::class, 'destroy'])->name('sessiondestroy');
+    Route::get('/application', [_ApplicationController::class, 'addPaymentInfo'])->name('application');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
