@@ -40,7 +40,7 @@
         <div class="progress" id="progress"></div>
         <div class="progress-step progress-step-active" data-title="Basic Information"></div>
         <div class="progress-step" data-title="Next of Kin Details"></div>
-        <div class="progress-step" data-title="SSCE Result"></div>
+        {{-- <div class="progress-step" data-title="SSCE Result"></div> --}}
 
         <div class="progress-step" data-title="Sign & Passport"></div>
     </div>
@@ -266,7 +266,7 @@
 
 <div class="btns-group"> <a href="#" class="btn btn-prev btn-primary w-50">Previous</a> <a href="#" class="btn btn-next btn-primary w-50">Next</a> </div>
     </div>
-    <div class="step-forms">
+    {{-- <div class="step-forms">
 
 
         <div class="row">
@@ -326,7 +326,7 @@
        
        
        <div class="btns-group"> <a href="#" class="btn btn-prev btn-primary w-50">Previous</a> <a href="#" class="btn btn-next btn-primary w-50">Next</a> </div>
-           </div>
+           </div> --}}
     <div class="step-forms">
 
 
@@ -337,12 +337,11 @@
 
 
                     <div class="container">
-    <h1>jQuery Image Upload 
-        <small>with preview</small>
+    <h1>Upload Recent Photo 
     </h1>
     <div class="avatar-upload">
         <div class="avatar-edit">
-            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+            <input type='file' name="imagepath" id="imagepath" accept=".png, .jpg, .jpeg" />
             <label for="imageUpload"></label>
         </div>
         <div class="avatar-preview">
