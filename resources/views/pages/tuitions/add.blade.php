@@ -1,88 +1,70 @@
-{{-- add new Admission modal start --}}
+{{-- add new tuition recod modal start --}}
 
-
-
-
-<div class="modal fade" id="addAdmissionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade" id="addRecordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
         <div class="modal-content">
-
-            <div class="modal-header  border-bottom-0">
-                <h5 class="modal-title" id="exampleModalLabel">Add Record</h5>
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Tuition Details</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
-                <form action="#" method="POST" id="add_admission_form" enctype="multipart/form-data"
-                    class="forms-sample">
+                <form method="POST" id="add_record_form">
                     @csrf
-                    <h2>Addmission Information <i class="fa fa-info"></i></h2>
                     <div class="form-group">
-                        <label for="first_name">First Name</label>
-                        <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
-
+                        <label for="program">Program</label>
+                        <select name="program" id="program" class="form-control" required>
+                            <option value="">--- Select ---</option>
+                            <option value="Remedial">Remedial</option>
+                            <option value="Diploma">Diploma</option>
+                            <option value="Undergraduate Degree">Undergraduate Degree</option>
+                            <option value="Part-time Degree">Part-time Degree</option>
+                            <option value="Postgraduate Diploma">Postgraduate Diploma</option>
+                            <option value="Masters Degree">Masters Degree</option>
+                            <option value="Doctorate Degree">Doctorate Degree</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="sur_name">Sur Name</label>
-                        <input type="text" name="sur_name" class="form-control" placeholder="Sur Name" required>
-
+                        <label for="session">Session</label>
+                        <select name="session" id="session" class="form-control" required>
+                            <option value="">--- Select ---</option>
+                            @php
+                                $next = 2022;
+                                for ($i = 2021; $i < 2050; $i++) {
+                                    echo "<option value='$i/$next'>$i/$next</option>";
+                                    $next += 1;
+                                }
+                            @endphp
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="other_name">Other Name</label>
-                        <input type="text" name="other_name" class="form-control" placeholder="Other Name." required>
-
+                        <label for="other_name">Freshers/Returners/Foreigners</label>
+                        <select name="registration_category" id="registration_category" class="form-control" required>
+                            <option value="">--- Select ---</option>
+                            <option value="Freshers">Freshers</option>
+                            <option value="Returners">Returners</option>
+                            <option value="Foreigners">Foreigners</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="jamb_no">JAMB No.</label>
-                        <input type="text" name="jamb_no" class="form-control" placeholder="JAMB No." required>
-
-                    </div>
-                    <div class="form-group">
-                        <label for="jamb_score">JAMB Score</label>
-                        <input type="number" name="jamb_score" class="form-control" placeholder="JAMB Score" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control" placeholder="Email" required>
-
-                    </div>
-                    <div class="form-group">
-
-                    </div>
-
-
-
-
-
-
-                    <div class="my-2">
-                        <div class="form-group">
-                            <label for="programme">Programmme</label>
-                            <select name="program_id" id="program_id" class="form-control" required>
-                                <option value="">Select Programme</option>
-                                {{-- @foreach ($programmes as $programme)
+                        <label for="indigene_category">Indigene/Non-Indigene/Residence/Non-Residence</label>
+                        <select name="indigene_category" id="indigene_category" class="form-control" required>
+                            <option value="">--- Select ---</option>
+                            <option value="Indigene">Indigene</option>
+                            <option value="Non-Indigene">Non-Indigene</option>
+                            <option value="Residence">Residence</option>
+                            <option value="Non-Residence">Non-Residence</option>
+                            {{-- @foreach ($programmes as $programme)
                                     <option value="{{ $programme->program_id }}">{{ $programme->program_name }}
                                     </option>
                                 @endforeach --}}
-
-                            </select>
-                        </div>
-
-
+                        </select>
                     </div>
-                    <div class="my-2">
-                        <div class="form-group">
-                            <label for="dob">Birth Date</label>
-                            <input type="date" name="dob" id="dob" class="form-control" placeholder="Birth Date"
-                                required>
-                        </div>
 
-                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" id="add_admission_btn" class="btn btn-primary">Add Admission</button>
+                <button type="submit" id="add_record_btn" class="btn btn-primary">Submit Record?</button>
             </div>
             </form>
         </div>
@@ -90,75 +72,3 @@
     </div>
 </div>
 </div>
-
-
-
-
-
-
-<div class="modal fade" id="addAdmissionModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    data-bs-backdrop="static" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add New Admission</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="#" method="POST" id="add_admission_form" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body p-4 bg-light">
-                    <ul style="padding: 5px;" id="save_msgList"></ul>
-                    <div class="row">
-                        <div class="col-lg">
-                            <label for="first_name">First Name</label>
-                            <input type="text" name="first_name" class="form-control" placeholder="First Name"
-                                required>
-                        </div>
-                        <div class="col-lg">
-                            <label for="sur_name">Sur Name</label>
-                            <input type="text" name="sur_name" class="form-control" placeholder="Sur Name" required>
-                        </div>
-                        <div class="col-lg">
-                            <label for="other_name">Other Name</label>
-                            <input type="text" name="other_name" class="form-control" placeholder="Other Name."
-                                required>
-                        </div>
-                        <div class="col-lg">
-                            <label for="jamb_no">JAMB No.</label>
-                            <input type="text" name="jamb_no" class="form-control" placeholder="JAMB No." required>
-                        </div>
-                        <div class="col-lg">
-                            <label for="jamb_score">JAMB Score</label>
-                            <input type="number" name="jamb_score" class="form-control" placeholder="JAMB Score"
-                                required>
-                        </div>
-                    </div>
-                    <div class="my-2">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control" placeholder="Email" required>
-                    </div>
-                    <div class="my-2">
-                        <label for="programme">Programmme</label>
-                        <select name="program_id" id="program_id" class="form-control" required>
-                            <option value="">Select Programme</option>
-                            {{-- @foreach ($programmes as $programme)
-                                <option value="{{ $programme->program_id }}">{{ $programme->program_name }}</option>
-                            @endforeach --}}
-
-                        </select>
-
-                    </div>
-                    <div class="my-2">
-                        <label for="dob">Birth Date</label>
-                        <input type="date" name="dob" id="dob" class="form-control" placeholder="Birth Date" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" id="add_admission_btn" class="btn btn-primary">Add Admission</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-{{-- add new Admissions modal end --}}

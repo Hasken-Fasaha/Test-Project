@@ -16,11 +16,11 @@ class CreateTuitionDetailsTable extends Migration
         Schema::create('tuition_details', function (Blueprint $table) {
             $table->id();
             //$table->foreignId('program_id')->references('id')->on('programs');
-            $table->string('program_id');
+            $table->string('program');
             $table->string('session');
-            $table->string('fr_or_re_or_fo');
-            $table->string('in_or_ni_or_nr');
-            $table->string('status');
+            $table->string('registration_category');
+            $table->string('indigene_category');
+            $table->string('status')->default('Active');
             $table->timestamps();
         });
     }

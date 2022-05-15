@@ -11,10 +11,10 @@ class TuitionDetail extends Model
 
     protected $table = 'tuition_details';
     protected $fillable = [
-                            'program_id',
+                            'program',
                             'session',
-                            'fr_or_re_or_fo',
-                            'in_or_ni_or_nr',
+                            'registration_category',
+                            'indigene_category',
                             'status'
                           ];
 

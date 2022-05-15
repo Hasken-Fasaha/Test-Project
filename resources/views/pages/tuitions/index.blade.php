@@ -7,10 +7,10 @@
                 <div class="card shadow">
                     <div class="card-header bg-secondary d-flex justify-content-between align-items-center">
                         <h3 class="text-light">Manage Tuitions</h3>
-                        <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addAdmissionModal"><i
+                        <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addRecordModal"><i
                                 class="bi-plus-circle me-2"></i>Add New Record</button>
                     </div>
-                    <div class="card-body" id="show_all_admissions">
+                    <div class="card-body" id="show_all_records">
                         <h3 class="text-center text-secondary my-5">Loading...</h3>
                     </div>
                 </div>
@@ -26,21 +26,18 @@
 @section('scripts')
     <script>
         $(function() {
-            $("#add_admission_form").submit(function(e) {
-                $("#add_admission_btn").prop("disabled", true);
+            $("#add_record_form").submit(function(e) {
+                $("#add_record_btn").prop("disabled", true);
                 e.preventDefault();
                 const fd = new FormData(this);
-                $("#add_admission_btn").text('Adding...');
-
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
+                $("#add_record_btn").text('Adding...');
 
                 $.ajax({
-                    url: '{{ route('admission.store') }}',
+                    url: '{{ route('tuition.store') }}',
                     method: 'post',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
                     data: fd,
                     cache: false,
                     contentType: false,
@@ -55,26 +52,24 @@
                             $.each(response.errors, function(key, err_value) {
                                 $('#save_msgList').append('<li>' + err_value + '</li>');
                             });
-                            $("#add_admission_btn").text('Add Admission');
-                            $("#add_admission_btn").prop("disabled", false);
+                            $("#add_record_btn").text('Add Record');
+                            $("#add_record_btn").prop("disabled", false);
                         } else {
                             if (response.status == 200) {
                                 $('#save_msgList').html("");
                                 $('#save_msgList').removeClass('alert alert-danger');
-                                //$('#success_message').addClass('alert alert-success');
-                                //$('#success_message').text(response.message);
-                                $('#addAdmissionModal').find('input').val('');
+                                $('#addRecordModal').find('input').val('');
                                 Swal.fire(
                                     'Added!',
-                                    'Admission Added Successfully!',
+                                    'Record Added Successfully!',
                                     'success'
                                 )
-                                $("#add_admission_btn").prop("disabled", false);
-                                fetchAllAdmissions();
+                                $("#add_record_btn").prop("disabled", false);
+                                fetchAllRecords();
                             }
-                            $("#add_admission_btn").text('Add Admission');
-                            $("#add_admission_form")[0].reset();
-                            $("#addAdmissionModal").modal('hide');
+                            $("#add_record_btn").text('Add Record');
+                            $("#add_record_form")[0].reset();
+                            $("#addRecordModal").modal('hide');
                         }
                     }
                 });
@@ -141,7 +136,7 @@
                                     'success'
                                 )
                                 $("#edit_admission_btn").prop("disabled", false);
-                                fetchAllAdmissions();
+                                fetchAllRecords();
                             }
                             $("#edit_admission_btn").text('Update Admission');
                             $("#edit_admission_form")[0].reset();
@@ -180,22 +175,22 @@
                                     'Admission has been deleted.',
                                     'success'
                                 )
-                                fetchAllAdmissions();
+                                fetchAllRecords();
                             }
                         });
                     }
                 })
             });
 
-            // fetch all Admissions ajax request
-            fetchAllAdmissions();
+            // fetch all records ajax request
+            fetchAllRecords();
 
-            function fetchAllAdmissions() {
+            function fetchAllRecords() {
                 $.ajax({
-                    url: '{{ route('admissions.fetchAll') }}',
+                    url: '{{ route('tuitions.fetchAll') }}',
                     method: 'get',
                     success: function(response) {
-                        $("#show_all_admissions").html(response);
+                        $("#show_all_records").html(response);
                         $("table").DataTable({
                             //order: [0, 'asc']
                         });
