@@ -16,6 +16,8 @@ use App\Http\Controllers\_ProfileController;
 use App\Http\Controllers\_LandingPageController; 
 use App\Http\Controllers\_ApplicationController; 
 
+use App\Http\Controllers\PaymentController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -120,19 +122,23 @@ Route::prefix('student')->group(function () {
 });
 
  
+//Paystack
+Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])->name('pay'); 
+Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
  
  
-    Route::get('/biodata', [_BiodataController::class, 'index'])->name('biodata');
-    Route::get('/biodata/edit/{id}', [_BiodataController::class, 'edit']);
-    Route::post('/biodata/edit', [_BiodataController::class, 'update'])->name('biodataupdate');
-    Route::post('/biodata/create', [_BiodataController::class, 'store'])->name('biodatacreate');
-    Route::get('/biodata/delete/{id}', [_BiodataController::class, 'destroy'])->name('biodatadestroy');
- 
-    Route::get('/session',  [_SessionController::class, 'index'])->name('session');
-    Route::get('/session/edit/{id}', [_SessionController::class, 'edit']);
-    Route::post('/session/edit',[_SessionController::class, 'update'])->name('sessionupdate');
-    Route::post('/session/create', [_SessionController::class, 'store'])->name('sessioncreate');
-    Route::get('/session/delete/{id}', [_SessionController::class, 'destroy'])->name('sessiondestroy');
+Route::get('/biodata', [_BiodataController::class, 'index'])->name('biodata');
+Route::get('/biodata/edit/{id}', [_BiodataController::class, 'edit']);
+Route::post('/biodata/edit', [_BiodataController::class, 'update'])->name('biodataupdate');
+Route::post('/biodata/create', [_BiodataController::class, 'store'])->name('biodatacreate');
+Route::get('/biodata/delete/{id}', [_BiodataController::class, 'destroy'])->name('biodatadestroy');
+
+Route::get('/session',  [_SessionController::class, 'index'])->name('session');
+Route::get('/session/edit/{id}', [_SessionController::class, 'edit']);
+Route::post('/session/edit',[_SessionController::class, 'update'])->name('sessionupdate');
+Route::post('/session/create', [_SessionController::class, 'store'])->name('sessioncreate');
+Route::get('/session/delete/{id}', [_SessionController::class, 'destroy'])->name('sessiondestroy');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
