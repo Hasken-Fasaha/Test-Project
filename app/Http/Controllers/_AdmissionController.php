@@ -50,7 +50,7 @@ class _AdmissionController extends Controller {
 			$output .= '</tbody></table>';
 			echo $output;
 		} else {
-			echo '<h1 class="text-center text-secondary my-5">No record found.</h1>';
+			echo '<h3 class="text-center text-secondary my-5">No record found.</h3>';
 		}
 	}
 

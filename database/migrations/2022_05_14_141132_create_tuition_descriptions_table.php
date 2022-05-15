@@ -15,7 +15,9 @@ class CreateTuitionDescriptionsTable extends Migration
     {
         Schema::create('tuition_descriptions', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(TuitionDetail::class);
+            $table->foreignId('tuition_id')->references('id')->on('tuition_details');
+            $table->string('item');
+            $table->integer('amount');
             $table->timestamps();
         });
     }

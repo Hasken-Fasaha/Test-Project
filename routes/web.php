@@ -16,7 +16,11 @@ use App\Http\Controllers\_ProfileController;
 use App\Http\Controllers\_LandingPageController; 
 use App\Http\Controllers\_ApplicationController; 
 
-use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\_PaymentController;
+
+use App\Http\Controllers\_TuitionDetailController;
+use App\Http\Controllers\_TuitionDescriptionController;
+
 
 
 Route::get('/', function () {
@@ -97,7 +101,7 @@ Route::prefix('students')->group(function () {
     Route::get('/grades/fetchAll', [_GradeController::class, 'fetchAll'])->name('grades.fetchAll');
     Route::delete('/grade/delete', [_GradeController::class, 'delete'])->name('grade.delete');
     Route::get('/grade/edit', [_GradeController::class, 'edit'])->name('grade.edit');
-    Route::post('/grade/update', [_GradeController::class, 'update'])->name('grade.update');
+    Route::post('/grade/update', [_GradeController::class, 'update'])->name('grade.update'); 
 
     Route::get('/results', [_AdmissionController::class, 'index']);
     Route::post('/result/store', [_AdmissionController::class, 'store'])->name('result.store');
@@ -105,6 +109,13 @@ Route::prefix('students')->group(function () {
     Route::delete('/result/delete', [_AdmissionController::class, 'delete'])->name('result.delete');
     Route::get('/result/edit', [_AdmissionController::class, 'edit'])->name('result.edit');
     Route::post('/result/update', [_AdmissionController::class, 'update'])->name('result.update');
+
+    Route::get('/tuitions', [_TuitionDetailController::class, 'index'])->name('tuitions.index');
+    Route::post('/tuition/store', [_TuitionDetailController::class, 'store'])->name('tuition.store');
+    Route::get('/tuitions/fetchAll', [_TuitionDetailController::class, 'fetchAll'])->name('tuitions.fetchAll');
+    Route::delete('/tuition/delete', [_TuitionDetailController::class, 'delete'])->name('tuition.delete');
+    Route::get('/tuition/edit', [_TuitionDetailController::class, 'edit'])->name('tuition.edit');
+    Route::post('/tuition/update', [_TuitionDetailController::class, 'update'])->name('tuition.update'); 
     
 });
 

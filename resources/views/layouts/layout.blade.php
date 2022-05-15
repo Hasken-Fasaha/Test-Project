@@ -1243,23 +1243,21 @@
     <script src="{{ asset('js/payment.js') }}"></script>
     <script src="{{ asset('js/profile.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
-
-
-
-    @if (\Session::has('success'))
-        <script>
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000
-            });
+        @if (\Session::has('success'))
+            <
+            script >
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
 
             Toast.fire({
                 icon: 'success',
                 title: "{!! \Session::get('success') !!}",
             });
-        </script>
+    </script>
     @endif
 
     @if (\Session::has('error'))
