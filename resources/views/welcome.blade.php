@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -569,4 +569,87 @@
     </div>
 </body>
 
-</html>
+</html> --}}
+@extends('layouts.app1')
+@section('content')
+    <div class="container">
+        <!-- ======= Header ======= -->
+        <header id="header" class="fixed-top header-inner-pages">
+            <div class="container-fluid">
+
+                <div class="row justify-content-center">
+                    <div class="col-xl-9 d-flex align-items-center justify-content-lg-between">
+
+                        <!-- Uncomment below if you prefer to use an image logo -->
+                        <a href="index.php" class="logo me-auto me-lg-0"><img src="{{ asset('assets/images/ngit.png') }}"
+                                alt="" class="img-fluid"></a>
+
+                        <nav id="navbar" class="navbar order-last order-lg-0">
+                            <ul>
+                                <li><a class="nav-link scrollto active" href="index.php#hero">Home</a></li>
+                                <li><a class="nav-link scrollto" href="index.php#about">About</a></li>
+                                <li><a class="nav-link scrollto" href="index.php#contact">Contact</a></li>
+                                <li><a class="nav-link scrollto" href="index.php#faq">FAQs</a></li>
+                                <li><a class="nav-link scrollto" href="{{ route('login') }}">Login</a></li>
+                            </ul>
+                            <i class="bi bi-list mobile-nav-toggle"></i>
+                        </nav><!-- .navbar -->
+
+                        <a class="get-started-btn scrollto" href="login.php">
+                            <i class="bi bi-download"></i> Download Admission List</a>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <br><br><br><br>
+
+        <div class="limit">
+            <div class="login-container">
+                <div class="bb-login" style="padding-top: 0px; margin-top: 0px;">
+                    <form method="GET" action="{{ route('application') }}"class="forms-sample">
+                        @csrf
+                        <center><img src="{{ asset('assets/images/logo.png') }}" width="100" style="padding-top:8px">
+                        </center>
+                        <span class="bb-form-title p-b-26"> Welcome </span>
+
+                        <div class="wrap-input100 validate-input mt-3">
+                            <input class="input100" type="text" name="jamb_no" placeholder="JAMB Number" required
+                                required>
+                            {{-- <span class="bbb-input" data-placeholder="JAMB Number"></span> --}}
+                        </div>
+
+                        <div class="wrap-input100 validate-input">
+                            <input class="input100" type="date" name="dob" placeholder="Date of Birth" required
+                                required>
+                            {{-- <span class="bbb-input" data-placeholder="Date of Birth"> --}}
+
+                        </div>
+
+
+
+                        <div class="login-container-form-btn">
+                            <div class="bb-login-form-btn">
+                                <div class="bb-form-bgbtn"></div>
+                                <button class="bb-form-btn" type="submit" name="login"> Proceed to Payment </button>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======= Footer ======= -->
+        <?php //include("footer.php");
+        ?>
+        <!-- End Footer -->
+
+        <div id="preloader"></div>
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                class="bi bi-arrow-up-short"></i></a>
+    </div>
+@endsection

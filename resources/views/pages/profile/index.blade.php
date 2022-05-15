@@ -31,15 +31,17 @@
                         <div class="row">
                             <div class="col-xl-12">
 
-                                {{ route('biodatacreate') }}
+                                
 
 <form method="POST" action="{{ route('biodatacreate') }}" class="form w-100" id="forms"  enctype="multipart/form-data" >
     {{ csrf_field() }}
 
     <div class="progressbar">
         <div class="progress" id="progress"></div>
-        <div class="progress-step progress-step-active" data-title="BAsic Information"></div>
+        <div class="progress-step progress-step-active" data-title="Basic Information"></div>
         <div class="progress-step" data-title="Next of Kin Details"></div>
+        {{-- <div class="progress-step" data-title="SSCE Result"></div> --}}
+
         <div class="progress-step" data-title="Sign & Passport"></div>
     </div>
     <div class="step-forms step-forms-active">
@@ -264,6 +266,67 @@
 
 <div class="btns-group"> <a href="#" class="btn btn-prev btn-primary w-50">Previous</a> <a href="#" class="btn btn-next btn-primary w-50">Next</a> </div>
     </div>
+    {{-- <div class="step-forms">
+
+
+        <div class="row">
+           <div class="col-lg-12">
+               <div class="mb-3">
+                   <label for="basicpill-nok-input">Next of Kin</label>
+                      <input type="text" name="nok_name" class="form-control" id="basicpill-nok-input" placeholder="Enter the Name of Your Next of Kin">
+                </div>
+               </div>
+               <div class="col-lg-6">
+                   <div class="mb-3">
+                   <label for="basicpill-nokpnumber-input">Next of Kin Phone Number</label>
+                   <input type="number" name="nok_phone_no" class="form-control" id="basicpill-nokpnumber-input" placeholder="Enter Your Next of Kin Phone Number">
+               </div>
+               </div>
+               <div class="col-lg-6">
+                   <div class="mb-3">
+                       <label for="basicpill-nokemail-input">Next of Kin Email</label>
+                       <input type="email" name="nok_email" class="form-control" id="basicpill-nokemail-input" placeholder="Enter Your Next of Kin Email">
+                   </div>
+               </div>                                                       
+            </div>
+       
+       
+        <div class="row">
+           <div class="col-lg-12">
+               <div class="mb-3">
+                   <label for="basicpill-firstname-input">Sponsor</label>
+                      <input type="text" name="sponsor_name" class="form-control" id="basicpill-sponsor-input" placeholder="Enter Your Sponsor's Name">
+                </div>
+               </div>
+       <div class="col-lg-12">
+           <div class="mb-3">
+               <label for="basicpill-Sponsoraddress-input">Sponsor Address</label>
+               <textarea id="basicpill-Sponsoraddress-input" class="form-control" name="sponsor_address" rows="2" placeholder="Enter Your Sponsor Address"></textarea>
+           </div>
+       </div>
+               <div class="col-lg-4">
+                   <div class="mb-3">
+                   <label for="basicpill-sponsorpnumber-input">Sponsor Phone Number</label>
+                   <input type="number" name="sponsor_phone_no" class="form-control" id="basicpill-sponsorpnumber-input" placeholder="Enter Your Sponsor Phone Number">
+               </div>
+               </div>
+               <div class="col-lg-4">
+                   <div class="mb-3">
+                       <label for="basicpill-sponsoremail-input">Sponsor Email</label>
+                       <input type="email" name="sponsor_email" class="form-control" id="basicpill-sponsoremail-input" placeholder="Enter Your Sponsor Email">
+                   </div>
+               </div>                                                       
+                <div class="col-lg-4">
+                   <div class="mb-3">
+                       <label for="basicpill-relationship-input">Relationship</label>
+                       <input type="text" name="relationship" class="form-control" id="basicpill-relationship-input" placeholder="Enter Your Relationship">
+                   </div>
+               </div>  
+            </div>
+       
+       
+       <div class="btns-group"> <a href="#" class="btn btn-prev btn-primary w-50">Previous</a> <a href="#" class="btn btn-next btn-primary w-50">Next</a> </div>
+           </div> --}}
     <div class="step-forms">
 
 
@@ -274,12 +337,11 @@
 
 
                     <div class="container">
-    <h1>jQuery Image Upload 
-        <small>with preview</small>
+    <h1>Upload Recent Photo 
     </h1>
     <div class="avatar-upload">
         <div class="avatar-edit">
-            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+            <input type='file' name="imagepath" id="imagepath" accept=".png, .jpg, .jpeg" />
             <label for="imageUpload"></label>
         </div>
         <div class="avatar-preview">

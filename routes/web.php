@@ -12,7 +12,11 @@ use App\Http\Controllers\_DepartmentController;
 use App\Http\Controllers\_SessionController;
 use App\Http\Controllers\_PaymentHistoryController;
 use App\Http\Controllers\_StudentController;
-use App\Http\Controllers\_ProfileController;
+use App\Http\Controllers\_ProfileController; 
+use App\Http\Controllers\_LandingPageController; 
+use App\Http\Controllers\_ApplicationController; 
+
+use App\Http\Controllers\PaymentController;
 
 
 Route::get('/', function () {
@@ -59,6 +63,9 @@ Route::get('/profile/edit/{id}', [_ProfileController::class, 'edit']);
 Route::post('/profile/edit', [_ProfileController::class, 'update'])->name('profileupdate');
 Route::post('/profile/create', [_ProfileController::class, 'store'])->name('profilecreate');
 Route::get('/profile/delete/{id}', [_ProfileController::class, 'destroy'])->name('profiledestroy');
+Route::get('/profile/delete/{id}', [_ProfileController::class, 'destroy'])->name('profiledestroy');
+//
+//paymentRedirect
 
 
 Route::get('/student', [_StudentController::class, 'index'])->name('student');
@@ -81,14 +88,14 @@ Route::controller(_BiodataController::class)->group(function(){
 
 Route::prefix('students')->group(function () {
     
-    Route::get('/admissions', [_AdmissionController::class, 'index']);
+    Route::get('/admissions', [_AdmissionController::class, 'index'])->name('admissions.index');
     Route::post('/admission/store', [_AdmissionController::class, 'store'])->name('admission.store');
     Route::get('/admissions/fetchAll', [_AdmissionController::class, 'fetchAll'])->name('admissions.fetchAll');
     Route::delete('/admission/delete', [_AdmissionController::class, 'delete'])->name('admission.delete');
     Route::get('/admission/edit', [_AdmissionController::class, 'edit'])->name('admission.edit');
     Route::post('/admission/update', [_AdmissionController::class, 'update'])->name('admission.update');
 
-    Route::get('/grades', [_GradeController::class, 'index']);
+    Route::get('/grades', [_GradeController::class, 'index'])->name('grades.index');
     Route::post('/grade/store', [_GradeController::class, 'store'])->name('grade.store');
     Route::get('/grades/fetchAll', [_GradeController::class, 'fetchAll'])->name('grades.fetchAll');
     Route::delete('/grade/delete', [_GradeController::class, 'delete'])->name('grade.delete');
@@ -104,8 +111,23 @@ Route::prefix('students')->group(function () {
     
 });
 
+Route::prefix('student')->group(function () {
+    
+    Route::get('/application', [_ApplicationController::class, 'index'])->name('application.index');
+    Route::post('/application/store', [_ApplicationController::class, 'store'])->name('application.store');
+    /* Route::get('/admissions/fetchAll', [_ApplicationController::class, 'fetchAll'])->name('admissions.fetchAll');
+    Route::delete('/admission/delete', [_ApplicationController::class, 'delete'])->name('admission.delete'); */
+    Route::get('/application/edit', [_ApplicationController::class, 'edit'])->name('application.edit');
+    Route::post('/application/update', [_ApplicationController::class, 'update'])->name('application.update'); 
+
+    Route::get('/landing-page', [_LandingPageController::class, 'index'])->name('landing.index');
+    
+});
+
  
- 
+//Paystack
+Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])->name('pay'); 
+Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
  
     Route::get('/biodata', [_BiodataController::class, 'index'])->name('biodata');
     Route::get('/biodata/edit/{id}', [_BiodataController::class, 'edit']);
@@ -118,6 +140,7 @@ Route::prefix('students')->group(function () {
     Route::post('/session/edit',[_SessionController::class, 'update'])->name('sessionupdate');
     Route::post('/session/create', [_SessionController::class, 'store'])->name('sessioncreate');
     Route::get('/session/delete/{id}', [_SessionController::class, 'destroy'])->name('sessiondestroy');
+    Route::get('/application', [_ApplicationController::class, 'addPaymentInfo'])->name('application');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

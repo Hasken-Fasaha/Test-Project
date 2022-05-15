@@ -55,6 +55,7 @@ class BioData extends Model
         'reg_no',
         
         'status',
+        'imagepath'
         
       ];
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Biodata;
+use Illuminate\Support\Facades\Storage;
 
 class _BioDataController extends Controller
 {
@@ -158,6 +159,20 @@ class _BioDataController extends Controller
            
            if($request->surname != ""){
                $biodata = new Biodata;
+                 
+                 try{
+                   // $path = $request->file('imagepath')->store('public/assets/images/students');
+                    //$path = $request->file('imagepath')->store('assets');
+                    $destination_path = 'public/assets/images/students';
+                    $image=  $request->file('imagepath');
+                    $image_name=  $image->getClientOriginalName();
+                    $path =  $request->file('imagepath')->storeAs($destination_path,$image_name);
+                   // $path = Storage::putFile('public', $request->file('imagepath'));
+                    dd($path);
+                 }
+                 catch(Exception $e){
+                        dd($e);
+                 }
                $jambId= $this->jamb_id_generator();
               
                $biodata->jamb_no = $jambId;
@@ -185,7 +200,8 @@ class _BioDataController extends Controller
                $biodata->relationship =$request->relationship;
                $biodata->school_name =$request->school_name;
                $biodata->exam_type =$request->exam_type;
-               $biodata->from = $request->from;      
+               $biodata->from = $request->from; 
+               $biodata->imagepath= $path;     
                $biodata->ssce = '{"employees":[    
                 {"name":"Ram", "email":"ram@gmail.com", "age":23},    
                 {"name":"Shyam", "email":"shyam23@gmail.com", "age":28},  

@@ -4,17 +4,43 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
+                <form id="paymentForm">
+                    <div class="form-group">
+                      <label for="email">Email Address</label>
+                      <input type="email" class="form-control" id="email-address"  value={{$admission[0]->email}}  required />
+                    </div>
+                    <div class="form-group">
+                      <label for="amount">Amount</label>
+                      <input class="form-control" type="tel" id="amount" value=30000 required />
+                    </div>
+                    <div class="form-group">
+                      <label for="first-name">First Name</label>
+                      <input type="text" class="form-control" id="first-name" value={{$admission[0]->first_name}} />
+                    </div>
+                    <div class="form-group">
+                      <label for="last-name">Last Name</label>
+                      <input class="form-control" type="text" id="last-name" value={{$admission[0]->first_name." ".$admission[0]->other_name}}/>
+                    </div>
+                    {{-- <div class="form-group">
+                        <label for="program">Program</label>
+                        <input class="form-control" type="text" id="last-name" value={{$admission[0]->program}}/>
+                      </div> --}}
+                    <div class="form-submit pt-2">
+                      <button type="submit" class="btn btn-danger " onclick="payWithPaystack()"> Pay </button>
+                    </div>
+                  </form>
+                  <script src="https://js.paystack.co/v1/inline.js"></script> 
 
-                <div class="pb-3">
+                {{-- <div class="pb-3">
                     <h4 class="card-title">payment List</h4>
                     <button id="addpayment" class="btn btn-primary">Add</button>
-                </div>
+                </div> --}}
                 {{-- <p class="card-title-desc">DataTables has most features enabled by
                     default, so all you need to do to use it with your own tables is to call
                     the construction function: <code>$().DataTable();</code>.
                 </p> --}}
 
-                <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                {{-- <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                     <thead>
                     <tr>
                         <th>SN</th>
@@ -55,7 +81,7 @@
                       
                     
                     </tbody>
-                </table>
+                </table> --}}
 
             </div>
         </div>
