@@ -609,7 +609,8 @@
         <div class="limit">
             <div class="login-container">
                 <div class="bb-login" style="padding-top: 0px; margin-top: 0px;">
-                    <form method="post">
+                    <form method="GET" action="{{ route('application') }}"class="forms-sample">
+                        @csrf
                         <center><img src="{{ asset('assets/images/logo.png') }}" width="100" style="padding-top:8px">
                         </center>
                         <span class="bb-form-title p-b-26"> Welcome </span>
@@ -624,6 +625,7 @@
                             <input class="input100" type="date" name="dob" placeholder="Date of Birth" required
                                 required>
                             {{-- <span class="bbb-input" data-placeholder="Date of Birth"> --}}
+
                         </div>
 
 

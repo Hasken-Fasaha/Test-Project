@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Admission;
 
 class _ApplicationController extends Controller
 {
@@ -14,8 +15,16 @@ class _ApplicationController extends Controller
     public function index()
     {
         //
+        
     }
 
+
+    public function addPaymentInfo(Request $request){
+        $admission= Admission::where('jamb_no',$request->jamb_no)->where('dob',$request->dob)->get();
+        // dd($admission);
+        return view('pages.payment.index',compact('admission'));
+
+    }
     /**
      * Show the form for creating a new resource.
      *
