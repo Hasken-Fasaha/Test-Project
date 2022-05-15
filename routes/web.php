@@ -16,6 +16,8 @@ use App\Http\Controllers\_ProfileController;
 use App\Http\Controllers\_LandingPageController; 
 use App\Http\Controllers\_ApplicationController; 
 
+use App\Http\Controllers\PaymentController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -123,7 +125,9 @@ Route::prefix('student')->group(function () {
 });
 
  
- 
+//Paystack
+Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])->name('pay'); 
+Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
  
     Route::get('/biodata', [_BiodataController::class, 'index'])->name('biodata');
     Route::get('/biodata/edit/{id}', [_BiodataController::class, 'edit']);

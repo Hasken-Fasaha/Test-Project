@@ -616,13 +616,16 @@
                         <span class="bb-form-title p-b-26"> Welcome </span>
 
                         <div class="wrap-input100 validate-input mt-3">
-                            <input class="input100" type="text" name="jamb_no" required required>
-                            <span class="bbb-input" data-placeholder="JAMB Number"></span>
+                            <input class="input100" type="text" name="jamb_no" placeholder="JAMB Number" required
+                                required>
+                            {{-- <span class="bbb-input" data-placeholder="JAMB Number"></span> --}}
                         </div>
 
                         <div class="wrap-input100 validate-input">
-                            <input class="input100" type="date" name="dob" required required>
-                            <span class="bbb-input" data-placeholder="">
+                            <input class="input100" type="date" name="dob" placeholder="Date of Birth" required
+                                required>
+                            {{-- <span class="bbb-input" data-placeholder="Date of Birth"> --}}
+
                         </div>
 
 
