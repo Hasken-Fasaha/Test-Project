@@ -34,6 +34,12 @@
             });
         });
     </script> --}}
+    {{-- <script>
+        table = $('#dynamicAddRemove').DataTable({
+            retrieve: true,
+            paging: false
+        });
+    </script> --}}
     <script>
         $("#add_record_btn").hover(function() {
             id = $('#program').children(':selected').val();
@@ -221,7 +227,7 @@
                 })
             });
 
-            // fetch all records ajax request
+            // fetch records ajax request
             fetchAllRecords();
 
             function fetchAllRecords() {
@@ -231,8 +237,10 @@
                     success: function(response) {
                         $("#show_all_records").html(response);
                         $("#programList").html(response.tuition_details);
-                        $("table").DataTable({
+                        $("#dynamicAddRemove").DataTable({
                             //order: [0, 'asc']
+                            retrieve: true,
+                            paging: false
                         });
                     }
                 });

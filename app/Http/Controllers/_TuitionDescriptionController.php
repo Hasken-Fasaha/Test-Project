@@ -22,6 +22,7 @@ class _TuitionDescriptionController extends Controller
     }
 
     public function fetchAll() {
+        
         //$tuition_descriptions = TuitionDescription::with("tuition")->orderBy("item","asc")/* ->groupBy('tuition_id') */->get();
         
         $tuition_descriptions = DB::table('tuition_descriptions')
@@ -133,7 +134,7 @@ class _TuitionDescriptionController extends Controller
                 'data' => $request->dynamicField,
             ]);
         } catch (\Exception $e) {
-            return "something went wrong";
+            return back()->with("something went wrong");
         }
         
     }
