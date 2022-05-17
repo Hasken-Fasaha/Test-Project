@@ -6,7 +6,7 @@
             <div class="col-lg-12">
                 <div class="card shadow">
                     <div class="card-header bg-secondary d-flex justify-content-between align-items-center">
-                        <h3 class="text-light">Manage Tuitions</h3>
+                        <h3 class="text-light">Manage Tuition Details</h3>
                         <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addRecordModal"><i
                                 class="bi-plus-circle me-2"></i>Add New Record</button>
                     </div>
@@ -18,12 +18,46 @@
         </div>
     </div>
 
-    @include('pages.tuitions.add')
+    @include('pages.tuition-details.add')
 
-    @include('pages.tuitions.edit')
+    @include('pages.tuition-details.edit')
 @endsection
 
 @section('scripts')
+    {{-- <script>
+        $(document).ready(function() {
+            //add_record_btn
+            $("#program").change(function() {
+                id = $(this).children(':selected').val();
+                //$('.tuition_id').next('input').focus().val(id);
+                $('.tuition_id').val(id);
+            });
+        });
+    </script> --}}
+    <script>
+        $("#add_record_btn").hover(function() {
+            id = $('#program').children(':selected').val();
+            $('.tuition_id').val(id);
+        });
+    </script>
+    <script type="text/javascript">
+        var i = 0;
+        $("#dynamicArray").click(function() {
+            ++i;
+            $("#dynamicAddRemove").append('<tr><td><input type="hidden" name="dynamicField[' + i +
+                '][tuition_id]"  id = "tuition_id" placeholder="Program" class="form-control tuition_id" /><input type="text" name="dynamicField[' +
+                i +
+                '][item]" placeholder="Description" class="form-control" /></td><td><input type="number" name="dynamicField[' +
+                i +
+                '][amount]" placeholder="Amount" class="form-control" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">Delete</button></td></tr>'
+            );
+        });
+
+        $(document).on('click', '.remove-input-field', function() {
+            $(this).parents('tr').remove();
+        });
+    </script>
+
     <script>
         $(function() {
             $("#add_record_form").submit(function(e) {
@@ -33,7 +67,7 @@
                 $("#add_record_btn").text('Adding...');
 
                 $.ajax({
-                    url: '{{ route('tuition.store') }}',
+                    url: '{{ route('tuition-detail.store') }}',
                     method: 'post',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -192,10 +226,11 @@
 
             function fetchAllRecords() {
                 $.ajax({
-                    url: '{{ route('tuitions.fetchAll') }}',
+                    url: '{{ route('tuitions-detail.fetchAll') }}',
                     method: 'get',
                     success: function(response) {
                         $("#show_all_records").html(response);
+                        $("#programList").html(response.tuition_details);
                         $("table").DataTable({
                             //order: [0, 'asc']
                         });

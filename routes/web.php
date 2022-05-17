@@ -118,7 +118,14 @@ Route::prefix('students')->group(function () {
     Route::get('/tuitions/fetchAll', [_TuitionDetailController::class, 'fetchAll'])->name('tuitions.fetchAll');
     Route::delete('/tuition/delete', [_TuitionDetailController::class, 'delete'])->name('tuition.delete');
     Route::get('/tuition/edit', [_TuitionDetailController::class, 'edit'])->name('tuition.edit');
-    Route::post('/tuition/update', [_TuitionDetailController::class, 'update'])->name('tuition.update'); 
+    Route::post('/tuition/update', [_TuitionDetailController::class, 'update'])->name('tuition.update');
+    
+    Route::get('/tuitions-detail', [_TuitionDescriptionController::class, 'index'])->name('tuitions-detail.index');
+    Route::post('/tuition-detail/store', [_TuitionDescriptionController::class, 'store'])->name('tuition-detail.store');
+    Route::get('/tuitions-detail/fetchAll', [_TuitionDescriptionController::class, 'fetchAll'])->name('tuitions-detail.fetchAll');
+    Route::delete('/tuition-detail/delete', [_TuitionDescriptionController::class, 'delete'])->name('tuition-detail.delete');
+    Route::get('/tuition-detail/edit', [_TuitionDescriptionController::class, 'edit'])->name('tuition-detail.edit');
+    Route::post('/tuition-detail/update', [_TuitionDescriptionController::class, 'update'])->name('tuition-detail.update');
     
 });
 

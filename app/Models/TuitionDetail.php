@@ -18,9 +18,4 @@ class TuitionDetail extends Model
                             'status'
                           ];
 
-
-    public function programme(){
-        return $this->belongsTo(Program::class, 'program_id');
-    }
-    
 }

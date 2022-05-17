@@ -18,12 +18,12 @@ class _TuitionDetailController extends Controller
      */
     public function index()
     {
-        $tuition_details = TuitionDetail::where("status","active");
+        $tuition_details = TuitionDetail::where("status","active")->get();
 		return view('pages.tuitions.index',compact('tuition_details'));
     }
 
     public function fetchAll() {
-		$tuition_details = TuitionDetail::with('programme')->orderBy('id', 'asc')->get();
+		$tuition_details = TuitionDetail::orderBy('id', 'asc')->get();
 		$output = '';
 		if ($tuition_details->count() > 0) {
 			$output .= '<table class="table table-striped table-sm text-center align-middle">
@@ -126,9 +126,12 @@ class _TuitionDetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $id = $request->id;
+		$tuition_details = TuitionDetail::find($id);
+        //dd($tuition_details->toArray());
+		return response()->json($tuition_details);
     }
 
     /**
@@ -138,9 +141,37 @@ class _TuitionDetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'program'=>'required|string',
+            'session'=>'required|string',
+            'registration_category'=>'required|string',
+            'indigene_category'=> 'required|string',
+        ]);
+        
+        if($validator->fails())
+        {
+            return response()->json([
+                'status'=>400,
+                'errors'=>$validator->messages()
+            ]);
+        }
+
+		$tuition_details = TuitionDetail::find($request->id);
+        //dd($tuition_details->toArray());
+		$data = [
+            'program' => $request->program, 
+            'session' => $request->session, 
+            'registration_category' => $request->registration_category, 
+            'indigene_category' => $request->indigene_category,
+                ];
+
+		$tuition_details->update($data);
+		return response()->json([
+			'status' => 200,
+            'data' => $tuition_details,
+		]);
     }
 
     /**
@@ -153,4 +184,11 @@ class _TuitionDetailController extends Controller
     {
         //
     }
+
+    public function delete(Request $request) {
+		$id = $request->id;
+		$tuition_details = TuitionDetail::find($id);
+		TuitionDetail::destroy($id);
+	}
+    
 }

@@ -1,4 +1,4 @@
-{{-- add new tuition recod modal start --}}
+{{-- add recod modal start --}}
 
 <div class="modal fade" id="addRecordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
@@ -8,6 +8,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <ul style="padding: 5px;" id="save_msgList"></ul>
                 <form method="POST" id="add_record_form">
                     @csrf
                     <div class="form-group">
@@ -64,7 +65,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" id="add_record_btn" class="btn btn-primary">Submit Record?</button>
+                <button type="submit" id="add_record_btn" class="btn btn-primary">Submit?</button>
             </div>
             </form>
         </div>
