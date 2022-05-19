@@ -572,6 +572,78 @@
 </html> --}}
 @extends('layouts.app1')
 @section('content')
+    <div class="modal fade" id="acceptAdmission" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Tuition Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul style="padding: 5px;" id="save_msgList"></ul>
+                    <form method="POST" id="add_record_form">
+                        @csrf
+                        <div class="form-group">
+                            <label for="program">Program</label>
+                            <select name="program" id="program" class="form-control" required>
+                                <option value="">--- Select ---</option>
+                                <option value="Remedial">Remedial</option>
+                                <option value="Diploma">Diploma</option>
+                                <option value="Undergraduate Degree">Undergraduate Degree</option>
+                                <option value="Part-time Degree">Part-time Degree</option>
+                                <option value="Postgraduate Diploma">Postgraduate Diploma</option>
+                                <option value="Masters Degree">Masters Degree</option>
+                                <option value="Doctorate Degree">Doctorate Degree</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="session">Session</label>
+                            <select name="session" id="session" class="form-control" required>
+                                <option value="">--- Select ---</option>
+                                @php
+                                    $next = 2022;
+                                    for ($i = 2021; $i < 2050; $i++) {
+                                        echo "<option value='$i/$next'>$i/$next</option>";
+                                        $next += 1;
+                                    }
+                                @endphp
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="other_name">Freshers/Returners/Foreigners</label>
+                            <select name="registration_category" id="registration_category" class="form-control" required>
+                                <option value="">--- Select ---</option>
+                                <option value="Freshers">Freshers</option>
+                                <option value="Returners">Returners</option>
+                                <option value="Foreigners">Foreigners</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="indigene_category">Indigene/Non-Indigene/Residence/Non-Residence</label>
+                            <select name="indigene_category" id="indigene_category" class="form-control" required>
+                                <option value="">--- Select ---</option>
+                                <option value="Indigene">Indigene</option>
+                                <option value="Non-Indigene">Non-Indigene</option>
+                                <option value="Residence">Residence</option>
+                                <option value="Non-Residence">Non-Residence</option>
+                                {{-- @foreach ($programmes as $programme)
+                                    <option value="{{ $programme->program_id }}">{{ $programme->program_name }}
+                                    </option>
+                                @endforeach --}}
+                            </select>
+                        </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" id="add_record_btn" class="btn btn-primary">Submit?</button>
+                </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
     <div class="container">
         <!-- ======= Header ======= -->
         <header id="header" class="fixed-top header-inner-pages">
@@ -598,7 +670,8 @@
                         <a class="get-started-btn scrollto" href="login.php">
                             <i class="bi bi-download"></i> Download Admission List</a>
 
-                        <a class="get-started-btn scrollto" href="login.php">
+                        <a class="get-started-btn scrollto btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#acceptAdmission">
                             <i class="bi bi-arrow-down"></i> Admission Acceptance</a>
                     </div>
                 </div>
@@ -611,7 +684,7 @@
 
         <div class="limit">
             <div class="login-container">
-                <div class="bb-login" style="padding-top: 0px; margin-top: 0px;">
+                {{-- <div class="bb-login" style="padding-top: 0px; margin-top: 0px;">
                     <form method="GET" action="{{ route('application') }}" class="forms-sample">
                         @csrf
                         <center><img src="{{ asset('assets/images/logo.png') }}" width="100" style="padding-top:8px">
@@ -621,38 +694,37 @@
                         <div class="wrap-input100 validate-input mt-3">
                             <input class="input100" type="text" name="jamb_no" placeholder="JAMB Number" required
                                 required>
-                            {{-- <span class="bbb-input" data-placeholder="JAMB Number"></span> --}}
-                        </div>
+                            {{-- <span class="bbb-input" data-placeholder="JAMB Number"></span> --}
+            </div>
 
-                        <div class="wrap-input100 validate-input">
-                            <input class="input100" type="date" name="dob" placeholder="Date of Birth" required
-                                required>
-                            {{-- <span class="bbb-input" data-placeholder="Date of Birth"> --}}
+            <div class="wrap-input100 validate-input">
+                <input class="input100" type="date" name="dob" placeholder="Date of Birth" required required>
+                {{-- <span class="bbb-input" data-placeholder="Date of Birth"> --}
 
-                        </div>
-
+            </div>
 
 
-                        <div class="login-container-form-btn">
-                            <div class="bb-login-form-btn">
-                                <div class="bb-form-bgbtn"></div>
-                                <button class="bb-form-btn" type="submit" name="login"> Proceed to Payment </button>
 
-                            </div>
-                        </div>
+            <div class="login-container-form-btn">
+                <div class="bb-login-form-btn">
+                    <div class="bb-form-bgbtn"></div>
+                    <button class="bb-form-btn" type="submit" name="login"> Proceed to Payment </button>
 
-                    </form>
                 </div>
             </div>
+
+            </form>
+        </div> --}
+            </div> --}}
+            </div>
+
+            <!-- ======= Footer ======= -->
+            <?php //include("footer.php");
+            ?>
+            <!-- End Footer -->
+
+            <div id="preloader"></div>
+            <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                    class="bi bi-arrow-up-short"></i></a>
         </div>
-
-        <!-- ======= Footer ======= -->
-        <?php //include("footer.php");
-        ?>
-        <!-- End Footer -->
-
-        <div id="preloader"></div>
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-                class="bi bi-arrow-up-short"></i></a>
-    </div>
-@endsection
+    @endsection
