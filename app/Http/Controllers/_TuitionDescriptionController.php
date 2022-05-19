@@ -61,7 +61,7 @@ class _TuitionDescriptionController extends Controller
                 <th>Registration Category</th>
                 <th>Indigene Category</th>
                 <th>Total Payable Fee</th>
-                <th>Updated at </th>
+                <th>Updated At </th>
                 <th>Actions</th>
               </tr>
             </thead>

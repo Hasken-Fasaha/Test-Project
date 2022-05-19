@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Program;
+use Carbon\Carbon;
 
 class _AdmissionController extends Controller {
 
@@ -56,9 +57,9 @@ class _AdmissionController extends Controller {
 
 	public function store(Request $request) {
         $validator = Validator::make($request->all(), [
-            'first_name'=>'required',
-            'sur_name'=>'required',
-            'other_name'=>'required',
+            'first_name'=>'required|string',
+            'surname'=>'required|string',
+            //'other_names'=>'string',
             'jamb_no'=> 'required|max:10',
             'jamb_score'=>'required|numeric|max:400|min:1',
             'email'=>'required|email|max:191',
@@ -76,13 +77,15 @@ class _AdmissionController extends Controller {
 
 		$admission = [
             'first_name'=>$request->first_name,
-            'sur_name'=>$request->sur_name,
-            'other_name'=>$request->other_name,
+            'surname'=>$request->surname,
+            'other_names'=>$request->other_names,
             'jamb_no' => $request->jamb_no, 
             'jamb_score' => $request->jamb_score, 
             'email' => $request->email, 
             'dob' => $request->dob, 
             'program_id' => $request->program_id, 
+            'date_of_admission' => Carbon::now(),
+            'registration_deadline' => Carbon::now()->addWeek(2),
         ];
 
         //return $admission;

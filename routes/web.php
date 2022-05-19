@@ -126,17 +126,19 @@ Route::prefix('students')->group(function () {
     Route::delete('/tuition-detail/delete', [_TuitionDescriptionController::class, 'delete'])->name('tuition-detail.delete');
     Route::get('/tuition-detail/edit', [_TuitionDescriptionController::class, 'edit'])->name('tuition-detail.edit');
     Route::post('/tuition-detail/update', [_TuitionDescriptionController::class, 'update'])->name('tuition-detail.update');
-    
-});
 
-Route::prefix('student')->group(function () {
-    
     Route::get('/application', [_ApplicationController::class, 'index'])->name('application.index');
     Route::post('/application/store', [_ApplicationController::class, 'store'])->name('application.store');
     /* Route::get('/admissions/fetchAll', [_ApplicationController::class, 'fetchAll'])->name('admissions.fetchAll');
     Route::delete('/admission/delete', [_ApplicationController::class, 'delete'])->name('admission.delete'); */
     Route::get('/application/edit', [_ApplicationController::class, 'edit'])->name('application.edit');
-    Route::post('/application/update', [_ApplicationController::class, 'update'])->name('application.update'); 
+    Route::post('/application/update', [_ApplicationController::class, 'update'])->name('application.update');
+    
+});
+
+Route::prefix('student')->group(function () {
+    
+     
 
     Route::get('/landing-page', [_LandingPageController::class, 'index'])->name('landing.index');
     

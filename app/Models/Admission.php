@@ -12,14 +12,15 @@ class Admission extends Model
     protected $table = 'admissions';
     protected $fillable = [
                             'first_name',
-                            'sur_name',
-                            'other_name',
+                            'surname',
+                            'other_names',
                             'jamb_no',
                             'email', 
                             'jamb_score', 
                             'dob',
-                            'program_id'
-
+                            'program_id',
+                            'date_of_admission',
+                            'registration_deadline'
                           ];
 
 

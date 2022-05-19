@@ -597,6 +597,9 @@
 
                         <a class="get-started-btn scrollto" href="login.php">
                             <i class="bi bi-download"></i> Download Admission List</a>
+
+                        <a class="get-started-btn scrollto" href="login.php">
+                            <i class="bi bi-arrow-down"></i> Admission Acceptance</a>
                     </div>
                 </div>
 
@@ -609,7 +612,7 @@
         <div class="limit">
             <div class="login-container">
                 <div class="bb-login" style="padding-top: 0px; margin-top: 0px;">
-                    <form method="GET" action="{{ route('application') }}"class="forms-sample">
+                    <form method="GET" action="{{ route('application') }}" class="forms-sample">
                         @csrf
                         <center><img src="{{ asset('assets/images/logo.png') }}" width="100" style="padding-top:8px">
                         </center>
