@@ -6,21 +6,168 @@
             <div class="col-lg-12">
                 <div class="card shadow">
                     <div class="card-header bg-secondary d-flex justify-content-between align-items-center">
-                        <h3 class="text-light">Manage Tuitions</h3>
+                        <h3 class="text-light">Acceptance & Tuition Description</h3>
                         <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addRecordModal"><i
-                                class="bi-plus-circle me-2"></i>Add New Record</button>
+                                class="bi bi-arrow-left me-2"></i>Back</button>
                     </div>
-                    <div class="card-body" id="show_all_records">
-                        <h3 class="text-center text-secondary my-5">Loading...</h3>
+                    <div class="card-body" id="">
+                        <div class="alert alert-info">Registration started on: <strong>{{ $tuition["regStartDate"] ?? "" }}</strong>, and will ends by <strong>{{ $tuition["regEndDate"] ?? "" }}</strong>. Remaining <strong>{{ $tuition["regDaysLeft"] ?? 0 }}</strong> days to close the registration.</div>
+                        
+                        <table width='1000' border='0' align='center' class='printable'>
+                            <tr>
+                              <td colspan='3' align='center' valign='top'>
+                          
+                                  <table width='100%' height='104' border='0' cellpadding='0' cellspacing='0'>
+                                   <tr>
+                                   <td width='80'>
+                                   <img src="{{ asset('assets/images/gsu-logo.png') }}" width='150' height='150' />
+                                   </td>
+                                    <td width='800'>
+                                    <div align='center' class='style11'><br>
+                                 <font style='font-size: 45px; font-weight:bold;'>GOMBE STATE UNIVERSITY</font><br>
+                                  <font style='font-size:16px'>PMB: 127, Gombe State</font><br><br>
+                                  <font style='font-weight:bold; line-height:40px; font-size:30px; color: #060'>Admission Acceptance Letter</font><br>
+                                  <font><b>{{-- <?php echo $session; ?> --}} Academic Session</b></font>
+                                
+                                  </div>
+                                  </td>
+                                   <td width='140'>
+                                   <img src='{{-- <?php echo $pic; ?> --}}' width='130' height='150' />
+                                    </td>
+                                  </tr>
+                                </table> 
+                          <hr style="border: solid 2px">
+                          </td>
+                            </tr>
+                          
+                          
+                          <tr>
+                           <td  colspan='3'>
+                          <fieldset>
+                            <legend>Student's Biodata</legend>
+                          <table>
+                            <tr>
+                              <td align='left' valign='top' width="550">
+                              <font class='label'>Full-Name:</font> <font class="value">{{-- <?php echo $fullname; ?> --}}</font><br>
+                              <font class='label'>Gender:</font> <font class="value">{{-- <?php echo $gender; ?> --}}</font><br>
+                              <font class='label'>Date of Birth:</font> <font class="value">{{-- <?php echo $dob; ?> --}}</font><br>
+                              <font class='label'>Email Address:</font> <font class="value">{{-- <?php echo $email; ?> --}}</font><br>
+                              <font class='label'>Phone Number:</font> <font class="value">{{-- <?php echo $pnumber; ?> --}}</font><br>
+                              </td>
+                          
+                              <td align='left' valign='top' width="500">
+                              <font class='label'>Marital Status:</font> <font class="value">{{-- <?php echo $mstatus; ?> --}}</font><br>
+                              <font class='label'>Nationality:</font> <font class="value">{{-- <?php echo $nationality; ?> --}}</font><br>
+                              <font class='label'>State of Origin:</font> <font class="value">{{-- <?php echo $state; ?> --}}</font><br>
+                              <font class='label'>LGA of Origin:</font> <font class="value">{{-- <?php echo $lga; ?> --}}</font><br>
+                              <font class='label'>Address:</font> <font class="value">{{-- <?php echo $address; ?> --}}</font><br>
+                              </td>
+                            </tr>
+                          </table>
+                          </fieldset>
+                           </td>
+                          </tr>
+                          
+                          
+                          {{-- 
+                          <tr>
+                            <td>
+                          <fieldset>
+                            <legend>Next of kin Details</legend>
+                              <font class='label'>Name:</font> <font class="value"><?php echo $nok_name; ?></font><br>
+                              <font class='label'>Address:</font> <font class="value"><?php echo $nok_address; ?></font><br>
+                              <font class='label'>Phone No:</font> <font class="value"><?php echo $nok_pnumber; ?></font><br>
+                              <font class='label'>Email Address:</font> <font class="value"><?php echo $nok_email; ?></font><br>
+                          </fieldset>
+                          
+                          </td>
+                          <td>
+                          
+                          <fieldset>
+                            <legend>Sponsor's Details</legend>
+                              <font class='label'>Name:</font> <font class="value"><?php echo $sponsor_name; ?></font><br>
+                              <font class='label'>Address:</font> <font class="value"><?php echo $sponsor_address; ?></font><br>
+                              <font class='label'>Phone No:</font> <font class="value"><?php echo $sponsor_pnumber; ?></font><br>
+                              <font class='label'>Email Address:</font> <font class="value"><?php echo $sponsor_email; ?></font><br>
+                              <font class='label'>Relationship:</font> <font class="value"><?php echo $sponsor_relationship; ?></font><br>
+                          </fieldset>
+                          </td>
+                          </tr>
+                          
+                          
+                          <tr>
+                           <td  colspan='3'>
+                          <fieldset>
+                            <legend>O'Level Result</legend>
+                          <table  border='1' cellspacing='0' cellpadding='3' bordercolor='#aaa' width="100%">
+                            <tr>
+                              <th>S/N</th>
+                              <th>Subject</th>
+                              <th>Grade</th>
+                              <th>Exam Type</th>
+                              <th>Year</th>
+                              <th>Exam No.</th>
+                            </tr>
+                          <?php 
+                          for ($i=0; $i < count($subjects) ; $i++) { 
+                            $sn = $i + 1;
+                            echo " <tr>
+                              <td>".$sn.".</td>
+                              <td>".$subjects[$i]."</td>
+                              <td>".$grade[$i]."</td>
+                              <td>NECO</td>
+                              <td>2019</td>
+                              <td>23645764GH</td>
+                            </tr>";
+                          }?>
+                          </table>
+                          </fieldset>
+                           </td>
+                          </tr>
+                          
+                          
+                          
+                          <tr>
+                           <td  colspan='3'>
+                          <fieldset>
+                            <legend>Uploaded Documents</legend>
+                          <table  border='1' cellspacing='0' cellpadding='3' bordercolor='#aaa' width="100%">
+                            <tr>
+                              <th>S/N</th>
+                              <th>Document type</th>
+                              <th>File size</th>
+                            </tr>
+                          <?php 
+                          for ($i=0; $i < count($document) ; $i++) { 
+                            $sn = $i + 1;
+                            echo " <tr>
+                              <td>".$sn.".</td>
+                              <td>".$document[$i]."</td>
+                              <td>".$file_size[$i]."Kb</td>
+                            </tr>";
+                          }?>
+                          </table>
+                          </fieldset>
+                           </td>
+                          </tr>
+                          
+                          
+                          
+                          
+                          </td>
+                          </tr> --}}
+                          </table>
+                          
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    @include('pages.tuitions.add')
+    {{-- @include('pages.tuitions.add')
 
-    @include('pages.tuitions.edit')
+    @include('pages.tuitions.edit') --}}
 @endsection
 
 @section('scripts')

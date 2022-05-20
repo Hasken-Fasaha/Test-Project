@@ -15,9 +15,12 @@ class CreateTuitionDetailsTable extends Migration
     {
         Schema::create('tuition_details', function (Blueprint $table) {
             $table->id();
-            //$table->foreignId('program_id')->references('id')->on('programs');
             $table->string('program');
             $table->string('session');
+            $table->integer('late_reg_penalty')->nullable();
+            $table->integer('acceptance_fee')->nullable();
+            $table->integer('hostel_fee')->nullable();
+            $table->string('avail_hostel')->nullable();
             $table->string('registration_category');
             $table->string('indigene_category');
             $table->string('status')->default('Active');

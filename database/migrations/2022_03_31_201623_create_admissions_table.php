@@ -25,6 +25,7 @@ class CreateAdmissionsTable extends Migration
             $table->string('program_id');
             $table->string('admission_category')->nullable();
             $table->string('registration_no')->nullable();
+            $table->string('programme')->nullable();
             $table->integer('amount_paid')->nullable();
             $table->string('gender')->nullable();
             $table->string('nin')->nullable();

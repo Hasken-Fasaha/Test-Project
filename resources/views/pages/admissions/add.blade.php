@@ -1,6 +1,4 @@
-{{-- add new Admission modal start --}}
-
-
+{{-- add modal start --}}
 
 
 <div class="modal fade" id="addAdmissionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -24,7 +22,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="surname">Sur Name</label>
+                        <label for="surname">Surname</label>
                         <input type="text" name="surname" class="form-control" placeholder="Sur Name" required>
 
                     </div>
@@ -89,8 +87,6 @@
 
     </div>
 </div>
-</div>
-
 
 
 
@@ -161,4 +157,4 @@
         </div>
     </div>
 </div>
-{{-- add new Admissions modal end --}}
+{{-- add modal end --}}
