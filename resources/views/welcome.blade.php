@@ -606,47 +606,251 @@
 
         <br><br><br><br>
 
-        <div class="limit">
-            <div class="login-container">
-                <div class="bb-login" style="padding-top: 0px; margin-top: 0px;">
-                    <form method="GET" action="{{ route('application') }}"class="forms-sample">
-                        @csrf
-                        <center><img src="{{ asset('assets/images/logo.png') }}" width="100" style="padding-top:8px">
-                        </center>
-                        <span class="bb-form-title p-b-26"> Welcome </span>
+        <main id="main">
 
-                        <div class="wrap-input100 validate-input mt-3">
-                            <input class="input100" type="text" name="jamb_no" required required>
-                            <span class="bbb-input" data-placeholder="JAMB Number"></span>
-                        </div>
-
-                        <div class="wrap-input100 validate-input">
-                            <input class="input100" type="date" name="dob" required required>
-                            <span class="bbb-input" data-placeholder="">
-                        </div>
-
-
-
-                        <div class="login-container-form-btn">
-                            <div class="bb-login-form-btn">
-                                <div class="bb-form-bgbtn"></div>
-                                <button class="bb-form-btn" type="submit" name="login"> Proceed to Payment </button>
-
-                            </div>
-                        </div>
-
-                    </form>
+            <!-- ======= Services Section ======= -->
+            <section id="services" class="services">
+              <div class="container">
+        
+        
+                <div class="row mt-5">
+        
+                  <div class="col-lg-4 col-md-6 d-flex align-items-stretch p-3">
+                    <div class="icon-box w-100">
+                      <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                      <h4><a href="newstudent.php">New Applications</a></h4>
+                      <button id="home_new_applicant">Click here to register as new candidate</button>
+                    </div>
+                  </div>
+                  
+                  <div class="col-lg-4 col-md-6 d-flex align-items-stretch p-3">
+                    <div class="icon-box w-100">
+                      <div class="icon"><i class="bx bx-user"></i></div>
+                      <h4><a >Login As Student</a></h4>
+                      <button id="home_studentlogin">Click here to login as student</button>
+                    </div>
+                  </div>
+        
+                  <div class="col-lg-4 col-md-6 d-flex align-items-stretch p-3">
+                    <div class="icon-box w-100">
+                      <div class="icon"><i class="bx bx-user"></i></div>
+                      <h4><a   >Login As Staff</a></h4>
+                      <button id="home_stafflogin">Click here to login as ataff</button>
+                    </div>
+                  </div>
+        
+        
                 </div>
-            </div>
-        </div>
-
+        
+              </div>
+            </section><!-- End Services Section -->
+        
+        </main>
         <!-- ======= Footer ======= -->
         <?php //include("footer.php");
         ?>
         <!-- End Footer -->
-
+        <script> alert(hahhahhahha)</script>
         <div id="preloader"></div>
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
                 class="bi bi-arrow-up-short"></i></a>
     </div>
+
+
+
+
+
+ {{--Student login model begins here --}}
+
+
+
+
+
+ <!-- Modal -->
+ 
+ <div class="modal fade" id="home_sloginmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        
+            <div class="modal-header  border-bottom-0">
+            <h5 class="modal-title" id="exampleModalLabel">Student Login.</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               
+                <div class="limit">
+                    <div class="login-container">
+                        <div class="bb-login" style="padding-top: 0px; margin-top: 0px;">
+                            <form method="post" action="{{ route('login') }}"class="forms-sample">
+                                @csrf
+                                <center><img src="{{ asset('assets/images/logo.png') }}" width="100" style="padding-top:8px">
+                                </center>
+                                <span class="bb-form-title p-b-26"> Welcome </span>
+                
+                                <div class="wrap-input100 validate-input mt-3">
+                                    <input class="input100" type="text" name="reg_number" required required>
+                                    <span class="bbb-input" data-placeholder="Registration Number."></span>
+                                </div>
+                
+                                <div class="wrap-input100 validate-input">
+                                    <input class="input100" type="password" name="password" required required>
+                                    <span class="bbb-input" data-placeholder="">
+                                </div>
+                
+                
+                
+                                <div class="login-container-form-btn">
+                                    <div class="bb-login-form-btn">
+                                        <div class="bb-form-bgbtn"></div>
+                                        <button class="bb-form-btn" type="submit" name="login"> login</button>
+                
+                                    </div>
+                                </div>
+                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+           
+      </div>
+    </div>
+  </div>
+
+{{--Student login model ends here --}}
+
+
+
+
+
+
+
+ {{--Staff login model begins here --}}
+
+
+
+
+
+ <!-- Modal -->
+ 
+ <div class="modal fade" id="home_stloginmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        
+            <div class="modal-header  border-bottom-0">
+            <h5 class="modal-title" id="exampleModalLabel">Staff Login.</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               
+                <div class="limit">
+                    <div class="login-container">
+                        <div class="bb-login" style="padding-top: 0px; margin-top: 0px;">
+                            <form method="GET" action="{{ route('login') }}"class="forms-sample">
+                                @csrf
+                                <center><img src="{{ asset('assets/images/logo.png') }}" width="100" style="padding-top:8px">
+                                </center>
+                                <span class="bb-form-title p-b-26"> Welcome </span>
+                
+                                <div class="wrap-input100 validate-input mt-3">
+                                    <input class="input100" type="text" name="user_id" required required>
+                                    <span class="bbb-input" data-placeholder="PSN Number"></span>
+                                </div>
+                
+                                <div class="wrap-input100 validate-input">
+                                    <input class="input100" type="password" name="password" required required>
+                                    <span class="bbb-input" data-placeholder="tttttttt">
+                                </div>
+                
+                
+                
+                                <div class="login-container-form-btn">
+                                    <div class="bb-login-form-btn">
+                                        <div class="bb-form-bgbtn"></div>
+                                        <button class="bb-form-btn" type="submit" name="login"> Login </button>
+                
+                                    </div>
+                                </div>
+                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+           
+      </div>
+    </div>
+  </div>
+
+{{--staff login model ends here --}}
+
+
+
+
+    {{-- New Application model begins here --}}
+
+
+
+
+
+ <!-- Modal -->
+ 
+ <div class="modal fade" id="home_loginmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        
+            <div class="modal-header  border-bottom-0">
+            <h5 class="modal-title" id="exampleModalLabel">New Applicant.</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               
+                <div class="limit">
+                    <div class="login-container">
+                        <div class="bb-login" style="padding-top: 0px; margin-top: 0px;">
+                            <form method="GET" action="{{ route('application') }}"class="forms-sample">
+                                @csrf
+                                <center><img src="{{ asset('assets/images/logo.png') }}" width="100" style="padding-top:8px">
+                                </center>
+                                <span class="bb-form-title p-b-26"> Welcome </span>
+                
+                                <div class="wrap-input100 validate-input mt-3">
+                                    <input class="input100" type="text" name="jamb_no" required required>
+                                    <span class="bbb-input" data-placeholder="JAMB Number"></span>
+                                </div>
+                
+                                <div class="wrap-input100 validate-input">
+                                    <input class="input100" type="date" name="dob" required required>
+                                    <span class="bbb-input" data-placeholder="">
+                                </div>
+                
+                
+                
+                                <div class="login-container-form-btn">
+                                    <div class="bb-login-form-btn">
+                                        <div class="bb-form-bgbtn"></div>
+                                        <button class="bb-form-btn" type="submit" name="login"> Proceed to Payment </button>
+                
+                                    </div>
+                                </div>
+                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+           
+      </div>
+    </div>
+  </div>
+
+{{-- New Application model ends here --}}
+
+    @include('modals')
 @endsection

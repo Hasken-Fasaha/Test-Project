@@ -15,12 +15,16 @@ use App\Http\Controllers\_StudentController;
 use App\Http\Controllers\_ProfileController; 
 use App\Http\Controllers\_LandingPageController; 
 use App\Http\Controllers\_ApplicationController; 
+use App\Http\Controllers\_LoginController; 
+use App\Http\Controllers\_LogoutController; 
+
 
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+//Route::post('/login', 'LoginController@login')->name('login.perform');
 
 Route::get('/course', [_CourseController::class, 'index'])->name('course')->middleware(['auth']);
 Route::get('/course/edit/{id}', [_CourseController::class, 'edit']);
@@ -138,8 +142,15 @@ Route::prefix('student')->group(function () {
     Route::get('/session/delete/{id}', [_SessionController::class, 'destroy'])->name('sessiondestroy');
     Route::get('/application', [_ApplicationController::class, 'addPaymentInfo'])->name('application');
 
+   // Route::post('/login', [_LoginController::class, 'login'])->name('login.perform');
+
+  
+    // Route::get('/student_dashboard', function () {
+    //     return view('student_dashboard');
+    // })->name('student_dashboard');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';

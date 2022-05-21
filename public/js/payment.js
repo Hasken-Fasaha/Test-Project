@@ -91,7 +91,7 @@ function payWithPaystack(e) {
       let message = 'Payment complete! Reference: ' + response.reference;
       alert(message);
       console.log(response.reference);
-      window.location="http://127.0.0.1:8000/profile";
+      window.location="http://127.0.0.1:8000/register";
     }
   });
   handler.openIframe();
