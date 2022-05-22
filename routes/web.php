@@ -24,6 +24,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('welcome');
+});
+Route::get('/index', function () {
+    return view('welcome');
+})->name('index');
+
 //Route::post('/login', 'LoginController@login')->name('login.perform');
 
 Route::get('/course', [_CourseController::class, 'index'])->name('course')->middleware(['auth']);
@@ -149,8 +156,7 @@ Route::prefix('student')->group(function () {
     //     return view('student_dashboard');
     // })->name('student_dashboard');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
-// require __DIR__.'/auth.php';
+
+
+ require __DIR__.'/admin.php';
