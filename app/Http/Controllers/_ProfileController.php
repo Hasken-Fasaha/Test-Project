@@ -14,13 +14,126 @@ class _ProfileController extends Controller
     public function index()
     {
         //
-        return view('pages.profile.index');
+          
+        $olevel_subjects=[
+            'English Language',
+            'Mathematics',
+            'Physics',
+            'Chemistry',
+            'Biology',
+            'Economics',
+            'Geography',
+            'Bussiness',
+            'Accounting',
+            'Civic Education',
+
+        ];
+          $olevel_grades=[
+              'A1',
+              'B2',
+              'B3',
+              'C4',
+              'C5',
+              'C6',
+              
+
+          ];
+          
+          $olevel_types=[
+              'School Exams',
+              'Private Exams'
+          ];
+          
+         $olevel_bodies=[
+             'NECO',
+             'NABTEB',
+             'NBAIS',
+             'WAEC',
+             'OTHERS',
+         ];
+          $olevel_years=[
+           2011,
+           2012,
+           2013,
+           2014,
+           2015,
+           2016,
+           2017,
+           2018,
+           2019,
+           2020,
+           2021,
+           2022,
+           2023,
+           2024,
+           2025,
+
+          ];
+       //
+       return view('pages.profile.index',compact('olevel_subjects','olevel_grades','olevel_types','olevel_bodies','olevel_years'));
+  
     }
 
     public function paymentRedirect($student)
     {
+       
+           
+         $olevel_subjects=[
+             'English Language',
+             'Mathematics',
+             'Physics',
+             'Chemistry',
+             'Biology',
+             'Economics',
+             'Geography',
+             'Bussiness',
+             'Accounting',
+             'Civic Education',
+
+         ];
+           $olevel_grades=[
+               'A1',
+               'B2',
+               'B3',
+               'C4',
+               'C5',
+               'C6',
+               
+
+           ];
+           
+           $olevel_types=[
+               'School Exams',
+               'Private Exams'
+           ];
+           
+          $olevel_bodies=[
+              'NECO',
+              'NABTEB',
+              'NBAIS',
+              'WAEC',
+              'OTHERS',
+          ];
+           $olevel_years=[
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+
+           ];
         //
-        return view('pages.profile.index',compact('$student'));
+        return view('pages.profile.index',compact('$student','olevel_subjects','olevel_grades','olevel_types','olevel_bodies','olevel_years'));
     }
 
     /**

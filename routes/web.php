@@ -12,9 +12,12 @@ use App\Http\Controllers\_DepartmentController;
 use App\Http\Controllers\_SessionController;
 use App\Http\Controllers\_PaymentHistoryController;
 use App\Http\Controllers\_StudentController;
-use App\Http\Controllers\_ProfileController;
-use App\Http\Controllers\_LandingPageController;
-use App\Http\Controllers\_ApplicationController;
+
+use App\Http\Controllers\_ProfileController; 
+use App\Http\Controllers\_LandingPageController; 
+use App\Http\Controllers\_ApplicationController; 
+use App\Http\Controllers\_LoginController; 
+use App\Http\Controllers\_LogoutController; 
 
 use App\Http\Controllers\_PaymentController;
 
@@ -25,9 +28,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/home', function () {
+    return view('welcome');
+});
+
+
+//Route::post('/login', 'LoginController@login')->name('login.perform');
+
+Route::get('/course', [_CourseController::class, 'index'])->name('course')->middleware(['auth']);
+
 Route::get('/course', [_CourseController::class, 'index'])
     ->name('course')
     ->middleware(['auth']);
+
 Route::get('/course/edit/{id}', [_CourseController::class, 'edit']);
 Route::post('/course/edit', [_CourseController::class, 'update'])->name(
     'courseupdate'
@@ -328,6 +342,19 @@ Route::get('/application', [
     'addPaymentInfo',
 ])->name('application');
 
+
+   // Route::post('/login', [_LoginController::class, 'login'])->name('login.perform');
+
+  
+    // Route::get('/student_dashboard', function () {
+    //     return view('student_dashboard');
+    // })->name('student_dashboard');
+
+
+
+
+ //require __DIR__.'/admin.php';
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })
@@ -335,3 +362,4 @@ Route::get('/dashboard', function () {
     ->name('dashboard');
 
 require __DIR__ . '/auth.php';
+

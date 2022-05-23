@@ -40,7 +40,7 @@
         <div class="progress" id="progress"></div>
         <div class="progress-step progress-step-active" data-title="Basic Information"></div>
         <div class="progress-step" data-title="Next of Kin Details"></div>
-        {{-- <div class="progress-step" data-title="SSCE Result"></div> --}}
+        <div class="progress-step" data-title="O' Level Result"></div>
 
         <div class="progress-step" data-title="Sign & Passport"></div>
     </div>
@@ -266,67 +266,571 @@
 
 <div class="btns-group"> <a href="#" class="btn btn-prev btn-primary w-50">Previous</a> <a href="#" class="btn btn-next btn-primary w-50">Next</a> </div>
     </div>
-    {{-- <div class="step-forms">
-
+    
+    <div class="step-forms">
 
         <div class="row">
-           <div class="col-lg-12">
-               <div class="mb-3">
-                   <label for="basicpill-nok-input">Next of Kin</label>
-                      <input type="text" name="nok_name" class="form-control" id="basicpill-nok-input" placeholder="Enter the Name of Your Next of Kin">
-                </div>
-               </div>
-               <div class="col-lg-6">
-                   <div class="mb-3">
-                   <label for="basicpill-nokpnumber-input">Next of Kin Phone Number</label>
-                   <input type="number" name="nok_phone_no" class="form-control" id="basicpill-nokpnumber-input" placeholder="Enter Your Next of Kin Phone Number">
-               </div>
-               </div>
-               <div class="col-lg-6">
-                   <div class="mb-3">
-                       <label for="basicpill-nokemail-input">Next of Kin Email</label>
-                       <input type="email" name="nok_email" class="form-control" id="basicpill-nokemail-input" placeholder="Enter Your Next of Kin Email">
-                   </div>
-               </div>                                                       
+            <div class="col-lg-2">
+                <label class="text-success">Subject</label>
             </div>
-       
-       
+            <div class="col-lg-2">
+                <label class="text-success">Grade</label>
+            </div>
+            <div class="col-lg-2">
+                <label class="text-success">Exams Type</label>
+            </div>
+            <div class="col-lg-2">
+                <label class="text-success">Exams Body</label>
+            </div>
+            <div class="col-lg-2">
+                <label class="text-success">Year</label>
+            </div>  
+            <div class="col-lg-2">
+                <label class="text-success">Exams No.</label>
+            </div>                    
+
+        </div>
+
         <div class="row">
-           <div class="col-lg-12">
-               <div class="mb-3">
-                   <label for="basicpill-firstname-input">Sponsor</label>
-                      <input type="text" name="sponsor_name" class="form-control" id="basicpill-sponsor-input" placeholder="Enter Your Sponsor's Name">
-                </div>
-               </div>
-       <div class="col-lg-12">
-           <div class="mb-3">
-               <label for="basicpill-Sponsoraddress-input">Sponsor Address</label>
-               <textarea id="basicpill-Sponsoraddress-input" class="form-control" name="sponsor_address" rows="2" placeholder="Enter Your Sponsor Address"></textarea>
-           </div>
-       </div>
-               <div class="col-lg-4">
-                   <div class="mb-3">
-                   <label for="basicpill-sponsorpnumber-input">Sponsor Phone Number</label>
-                   <input type="number" name="sponsor_phone_no" class="form-control" id="basicpill-sponsorpnumber-input" placeholder="Enter Your Sponsor Phone Number">
-               </div>
-               </div>
-               <div class="col-lg-4">
-                   <div class="mb-3">
-                       <label for="basicpill-sponsoremail-input">Sponsor Email</label>
-                       <input type="email" name="sponsor_email" class="form-control" id="basicpill-sponsoremail-input" placeholder="Enter Your Sponsor Email">
-                   </div>
-               </div>                                                       
-                <div class="col-lg-4">
-                   <div class="mb-3">
-                       <label for="basicpill-relationship-input">Relationship</label>
-                       <input type="text" name="relationship" class="form-control" id="basicpill-relationship-input" placeholder="Enter Your Relationship">
-                   </div>
-               </div>  
+            <div class="col-lg-2">
+                <select name="subject1" class="form-control">
+                <option>Subject 1</option>
+                @foreach($olevel_subjects as $subject )
+                
+                <option >{{$subject}}</option>
+                @endforeach
+               
+                </select>
             </div>
+            <div class="col-lg-2">
+                <select name="grade1" class="form-control">
+                <option>Grade 1</option>
+                @foreach($olevel_grades as $grade )
+                
+                <option >{{$grade}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="type1" class="form-control">
+                <option>Exams Type 1</option>
+                @foreach($olevel_types as $type )
+                
+                <option >{{$type}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="body1" class="form-control">
+                <option>Exams Body 1</option>
+                @foreach($olevel_bodies as $body )
+                
+                <option >{{$body}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="year1" class="form-control">
+                <option>Year 1</option>
+                @foreach($olevel_years as $year )
+                
+                <option >{{$year}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <input type="text" name="exams_no1" class="form-control" placeholder="Exams No. 1">
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-lg-2">
+                <select name="subject2" class="form-control">
+                <option>Subject 2</option>
+                @foreach($olevel_subjects as $subject )
+                
+                <option >{{$subject}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="grade2" class="form-control">
+                <option>Grade 2</option>
+                @foreach($olevel_grades as $grade )
+                
+                <option >{{$grade}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="type2" class="form-control">
+                <option>Exams Type 2</option>
+                @foreach($olevel_types as $type )
+                
+                <option >{{$type}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="body2" class="form-control">
+                <option>Exams Body 2</option>
+                @foreach($olevel_bodies as $body )
+                
+                <option >{{$body}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="year2" class="form-control">
+                <option>Year 2</option>
+                @foreach($olevel_years as $year )
+                
+                <option >{{$year}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <input type="text" name="exams_no2" class="form-control" placeholder="Exams No. 2">
+            </div>
+        </div>      
+
+         <div class="row mt-2">
+            <div class="col-lg-2">
+                <select name="subject3" class="form-control">
+                <option>Subject 3</option>
+                @foreach($olevel_subjects as $subject )
+                
+                <option >{{$subject}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="grade3" class="form-control">
+                <option>Grade 3</option>
+                @foreach($olevel_grades as $grade )
+                
+                <option >{{$grade}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="type3" class="form-control">
+                <option>Exams Type 3</option>
+                @foreach($olevel_types as $type )
+                
+                <option >{{$type}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="body3" class="form-control">
+                <option>Exams Body 3</option>
+                @foreach($olevel_bodies as $body )
+                
+                <option >{{$body}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="year3" class="form-control">
+                <option>Year 3</option>
+                @foreach($olevel_years as $year )
+                
+                <option >{{$year}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <input type="text" name="exams_no3" class="form-control" placeholder="Exams No. 3">
+            </div>
+        </div>                                                   
+                                          
+        <div class="row mt-2">
+            <div class="col-lg-2">
+                <select name="subject4" class="form-control">
+                <option>Subject 4</option>
+                @foreach($olevel_subjects as $subject )
+                
+                <option >{{$subject}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="grade4" class="form-control">
+                <option>Grade 4</option>
+                @foreach($olevel_grades as $grade )
+                
+                <option >{{$grade}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="type4" class="form-control">
+                <option>Exams Type 4</option>
+                @foreach($olevel_types as $type )
+                
+                <option >{{$type}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="body4" class="form-control">
+                <option>Exams Body 4</option>
+                @foreach($olevel_bodies as $body )
+                
+                <option >{{$body}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="year4" class="form-control">
+                <option>Year 4</option>
+                @foreach($olevel_years as $year )
+                
+                <option >{{$year}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <input type="text" name="exams_no4" class="form-control" placeholder="Exams No. 4">
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-lg-2">
+                <select name="subject5" class="form-control">
+                <option>Subject 5</option>
+                @foreach($olevel_subjects as $subject )
+                
+                <option >{{$subject}}</option>
+                @endforeach
+                </select>
+            </div> 
+            <div class="col-lg-2">
+                <select name="grade5" class="form-control">
+                <option>Grade 5</option>
+                @foreach($olevel_grades as $grade )
+                
+                <option >{{$grade}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="type5" class="form-control">
+                <option>Exams Type 5</option>
+                @foreach($olevel_types as $type )
+                
+                <option >{{$type}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="body5" class="form-control">
+                <option>Exams Body 5</option>
+                @foreach($olevel_bodies as $body )
+                
+                <option >{{$body}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="year5" class="form-control">
+                <option>Year 5</option>
+                @foreach($olevel_years as $year )
+                
+                <option >{{$year}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <input type="text" name="exams_no5" class="form-control" placeholder="Exams No. 5">
+            </div>
+        </div>
+
+       <div class="row mt-2">
+            <div class="col-lg-2">
+                <select name="subject6" class="form-control">
+                <option>Subject 6</option>
+                @foreach($olevel_subjects as $subject )
+                
+                <option >{{$subject}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="grade6" class="form-control">
+                <option>Grade 6</option>
+                @foreach($olevel_grades as $grade )
+                
+                <option >{{$grade}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="type6" class="form-control">
+                <option>Exams Type 6</option>
+                @foreach($olevel_types as $type )
+                
+                <option >{{$type}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="body6" class="form-control">
+                <option>Exams Body 6</option>
+                @foreach($olevel_bodies as $body )
+                
+                <option >{{$body}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="year6" class="form-control">
+                <option>Year 6</option>
+                @foreach($olevel_years as $year )
+                
+                <option >{{$year}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <input type="text" name="exams_no6" class="form-control" placeholder="Exams No. 6">
+            </div>
+        </div>
+
+       <div class="row mt-2">
+            <div class="col-lg-2">
+                <select name="subject7" class="form-control">
+                <option>Subject 7</option>
+                @foreach($olevel_subjects as $subject )
+                
+                <option >{{$subject}}</option>
+                @endforeach
+                </select>
+            </div>
+
+            <div class="col-lg-2">
+                <select name="grade7" class="form-control">
+                <option>Grade 7</option>
+                @foreach($olevel_grades as $grade )
+                <option >{{$grade}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="type7" class="form-control">
+                <option>Exams Type 7</option>
+                @foreach($olevel_types as $type )
+                
+                <option >{{$type}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="body7" class="form-control">
+                <option>Exams Body 7</option>
+                @foreach($olevel_bodies as $body )
+                
+                <option >{{$body}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="year7" class="form-control">
+                <option>Year 7</option>
+                @foreach($olevel_years as $year )
+                
+                <option >{{$year}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <input type="text" name="exams_no7" class="form-control" placeholder="Exams No. 7">
+            </div>
+        </div>
+
+       <div class="row mt-2">
+            <div class="col-lg-2">
+                <select name="subject8" class="form-control">
+                <option>Subject 8</option>
+                @foreach($olevel_subjects as $subject )
+                
+                <option >{{$subject}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="grade8" class="form-control">
+                <option>Grade 8</option>
+                @foreach($olevel_grades as $grade )
+                
+                <option >{{$grade}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="type8" class="form-control">
+                <option>Exams Type 8</option>
+                @foreach($olevel_types as $type )
+                
+                <option >{{$type}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="body8" class="form-control">
+                <option>Exams Body 8</option>
+                @foreach($olevel_bodies as $body )
+                
+                <option >{{$body}}</option>
+                @endforeach
+                
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="year8" class="form-control">
+                <option>Year 8</option>
+                @foreach($olevel_years as $year )
+                
+                <option >{{$year}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <input type="text" name="exams_no8" class="form-control" placeholder="Exams No. 8">
+            </div>
+        </div>
+
+              
+
+       <div class="row mt-2">
+        <div class="col-lg-2">
+            <select name="subject9" class="form-control">
+            <option>Subject 9</option>
+            @foreach($olevel_subjects as $subject )
+            
+            <option >{{$subject}}</option>
+            @endforeach
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select name="grade9" class="form-control">
+            <option>Grade 9</option>
+            @foreach($olevel_grades as $grade )
+            
+            <option >{{$grade}}</option>
+            @endforeach
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select name="type9" class="form-control">
+            <option>Exams Type 9</option>
+            @foreach($olevel_types as $type )
+            
+            <option >{{$type}}</option>
+            @endforeach
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select name="body9" class="form-control">
+            <option>Exams Body 9</option>
+            @foreach($olevel_bodies as $body )
+            
+            <option >{{$body}}</option>
+            @endforeach
+            
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select name="subject9" class="form-control">
+            <option>Year 9</option>
+            @foreach($olevel_years as $year )
+            
+            <option >{{$year}}</option>
+            @endforeach
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <input type="text" name="exams_no9" class="form-control" placeholder="Exams No. 9">
+        </div>
+    </div>       
+
+
+
+
+{{-- 
+     <div class="row mt-2">
+            <div class="col-lg-2">
+                <select name="subject9" class="form-control">
+                <option>Subject 9</option>
+                @foreach($olevel_subjects as $subject )
+                
+                <option >{{$subject}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="subject9" class="form-control">
+                <option>Grade 9</option>
+                @foreach($olevel_grades as $grade )
+                
+                <option >{{$grade}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="subject9" class="form-control">
+                <option>Exams Type 9</option>
+                @foreach($olevel_types as $type )
+                
+                <option >{{$type}}</option>
+                @endforeach
+            </div>
+            <div class="col-lg-2">
+                <select name="subject5" class="form-control">
+                <option>Exams Body 5</option>
+                @foreach($olevel_bodies as $body )
+                
+                <option >{{$body}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <select name="subject9" class="form-control">
+                <option>Year 9</option>
+                @foreach($olevel_years as $year )
+                
+                <option >{{$year}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <input type="text" name="exams_no9" class="form-control" placeholder="Exams No. 9">
+            </div>
+        </div>  --}}
+
+
+
+        <div class="col-lg-6 pt-2">
+            <h1>Upload O' level result image 
+            </h1>
+            <div class="avatar-upload">
+                <div class="avatar-edit">
+                    <input type='file' name="olevel_result" id="olevelimage" accept=".png, .jpg, .jpeg" />
+                    <label for="imageUpload"></label>
+                </div>
+                <div class="avatar-preview">
+                    <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+                        
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
        
-       
-       <div class="btns-group"> <a href="#" class="btn btn-prev btn-primary w-50">Previous</a> <a href="#" class="btn btn-next btn-primary w-50">Next</a> </div>
-           </div> --}}
+       <div class="btns-group pt-2"> <a href="#" class="btn btn-prev btn-primary w-50">Previous</a> <a href="#" class="btn btn-next btn-primary w-50">Next</a> </div>
+           </div> 
     <div class="step-forms">
 
 
@@ -337,18 +841,25 @@
 
 
                     <div class="container">
-    <h1>Upload Recent Photo 
-    </h1>
-    <div class="avatar-upload">
-        <div class="avatar-edit">
-            <input type='file' name="imagepath" id="imagepath" accept=".png, .jpg, .jpeg" />
-            <label for="imageUpload"></label>
-        </div>
-        <div class="avatar-preview">
-            <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
-            </div>
-        </div>
-    </div>
+                        <div class="row">   
+                          
+                            <div class="col-lg-6">
+                                <h1>Upload Recent Photo 
+                                </h1>
+                                <div class="avatar-upload">
+                                    <div class="avatar-edit">
+                                        <input type='file' name="imagepath" id="imagepath" accept=".png, .jpg, .jpeg" />
+                                        <label for="imageUpload"></label>
+                                    </div>
+                                    <div class="avatar-preview">
+                                        <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+  
 </div>
     
 
@@ -363,7 +874,7 @@
 
 
         <div class="btns-group"> <a href="#" class="btn btn-prev btn-primary w-50">Previous</a> 
-            <input type="submit" value="Submit" id="submit-form" class="btn" /> </div>
+            <input type="submit" value="Submit" id="submit-form" class="btn btn-success" /> </div>
     </div>
 </form>
 

@@ -51,6 +51,8 @@ class CreateBioDataTable extends Migration
             $table->string('reg_no')->nullable(true);
             $table->string('status')->nullable(true);
             $table->string('imagepath')->nullable(true);
+            $table->string('reg_status')->nullable(true);
+
 
             $table->timestamps();
         });
