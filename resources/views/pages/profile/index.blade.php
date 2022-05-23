@@ -1,6 +1,6 @@
 
 
-@extends('layouts.layout')
+@extends('layouts.student_layout')
 @section('content')
 <!-- ============================================================== -->
             <!-- Start right Content here -->
