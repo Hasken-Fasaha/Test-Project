@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>GSU</title>
     <meta name="description" content="Sybit Edu-Consults">
     <meta name="keywords" content="Sybit, Consultation, Edu-Consults, CBT, Senior, Secondary, Education, Nigeria">
@@ -1245,23 +1247,21 @@
     <script src="{{ asset('js/landing_page.js') }}"></script> 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
-
-
-
-    @if (\Session::has('success'))
-        <script>
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000
-            });
+        @if (\Session::has('success'))
+            <
+            script >
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
 
             Toast.fire({
                 icon: 'success',
                 title: "{!! \Session::get('success') !!}",
             });
-        </script>
+    </script>
     @endif
 
     @if (\Session::has('error'))
