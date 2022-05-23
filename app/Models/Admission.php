@@ -11,20 +11,25 @@ class Admission extends Model
 
     protected $table = 'admissions';
     protected $fillable = [
-                            'first_name',
-                            'sur_name',
-                            'other_name',
-                            'jamb_no',
-                            'email', 
-                            'jamb_score', 
-                            'dob',
-                            'program_id'
+        'first_name',
+        'surname',
+        'other_names',
+        'jamb_no',
+        'email',
+        'jamb_score',
+        'dob',
+        'program_id',
+        'date_of_admission',
+        'registration_deadline',
+    ];
 
-                          ];
-
-
-    public function programme(){
+    public function programme()
+    {
         return $this->belongsTo(Program::class, 'program_id');
     }
 
+    public function program()
+    {
+        return $this->belongsTo(Program::class, 'program_id');
+    }
 }

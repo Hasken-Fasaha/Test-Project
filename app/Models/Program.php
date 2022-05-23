@@ -10,5 +10,5 @@ class Program extends \Eloquent implements Authenticatable
     protected $table = 'programs';
     public $incrementing = false;
     protected $primaryKey = 'program_id';
-    protected $fillable = ['program_name','program_id','dept_id',];
+    protected $fillable = ['program_name', 'program_id', 'dept_id'];
 }
