@@ -152,51 +152,11 @@ class _BioDataController extends Controller
       }
 
 
-      function generateJson(Request $request){
-        $olevel = array (
-
-            array($request->subject1,$request->grade1,$request->body1,$request->type1,$request->year1,$request->exam_no1),
-            array($request->subject2,$request->grade2,$request->body2,$request->type2,$request->year2,$request->exam_no2),
-            array($request->subject3,$request->grade3,$request->body3,$request->type3,$request->year3,$request->exam_no3),
-            array($request->subject4,$request->grade4,$request->body4,$request->type4,$request->year4,$request->exam_no4),
-            array($request->subject5,$request->grade5,$request->body5,$request->type5,$request->year5,$request->exam_no5),
-            array($request->subject6,$request->grade6,$request->body6,$request->type6,$request->year6,$request->exam_no6),
-            array($request->subject7,$request->grade7,$request->body7,$request->type7,$request->year7,$request->exam_no7),
-            array($request->subject8,$request->grade8,$request->body8,$request->type8,$request->year8,$request->exam_no8),
-            array($request->subject9,$request->grade9,$request->body9,$request->type9,$request->year9,$request->exam_no9),
-
-
-          );
-
-        //   dd(json_encode($olevel));
-          return json_encode($olevel);
-      }
-
       public function store(Request $request)
       {
          
-     
-          //dd(generateJson());
+   
            
-
-          $olevel = array (
-
-            array($request->subject1,$request->grade1,$request->body1,$request->type1,$request->year1,$request->exam_no1),
-            array($request->subject2,$request->grade2,$request->body2,$request->type2,$request->year2,$request->exam_no2),
-            array($request->subject3,$request->grade3,$request->body3,$request->type3,$request->year3,$request->exam_no3),
-            array($request->subject4,$request->grade4,$request->body4,$request->type4,$request->year4,$request->exam_no4),
-            array($request->subject5,$request->grade5,$request->body5,$request->type5,$request->year5,$request->exam_no5),
-            array($request->subject6,$request->grade6,$request->body6,$request->type6,$request->year6,$request->exam_no6),
-            array($request->subject7,$request->grade7,$request->body7,$request->type7,$request->year7,$request->exam_no7),
-            array($request->subject8,$request->grade8,$request->body8,$request->type8,$request->year8,$request->exam_no8),
-            array($request->subject9,$request->grade9,$request->body9,$request->type9,$request->year9,$request->exam_no9),
-
-
-          );
-
-        //   dd(json_encode($olevel));
-          $oleveljson=json_encode($olevel);
-        
            if($request->surname != ""){
                $biodata = new Biodata;
                  
@@ -204,28 +164,16 @@ class _BioDataController extends Controller
                    // $path = $request->file('imagepath')->store('public/assets/images/students');
                     //$path = $request->file('imagepath')->store('assets');
                     $destination_path = 'public/assets/images/students';
-                    $image=  $request->file('olevel_result');
+                    $image=  $request->file('imagepath');
                     $image_name=  $image->getClientOriginalName();
                     $path =  $request->file('imagepath')->storeAs($destination_path,$image_name);
-
-                    $oleve_destination_path = 'public/assets/images/olevels';
-                    $olevel_image=  $request->file('imagepath');
-
-                    $olevel_image_name=  $image->getClientOriginalName();
-                    $olevel_path =  $request->file('imagepath')->storeAs($destination_path,$image_name);
-
-
-
-                  
                    // $path = Storage::putFile('public', $request->file('imagepath'));
-                   // dd($path);
+                    dd($path);
                  }
                  catch(Exception $e){
                         dd($e);
                  }
                $jambId= $this->jamb_id_generator();
-               $olevelArr=[];
-
               
                $biodata->jamb_no = $jambId;
                $biodata->surname = $request->surname;
@@ -253,10 +201,13 @@ class _BioDataController extends Controller
                $biodata->school_name =$request->school_name;
                $biodata->exam_type =$request->exam_type;
                $biodata->from = $request->from; 
-               $biodata->imagepath= $path;  
-               
-               
-               $biodata->ssce = $oleveljson;
+               $biodata->imagepath= $path;     
+               $biodata->ssce = '{"employees":[    
+                {"name":"Ram", "email":"ram@gmail.com", "age":23},    
+                {"name":"Shyam", "email":"shyam23@gmail.com", "age":28},  
+                {"name":"John", "email":"john@gmail.com", "age":33},    
+                {"name":"Bob", "email":"bob32@gmail.com", "age":41}   
+            ]}  ';
                $biodata->to = $request->to;
                   
                $biodata->faculty_id = $request->faculty_id;

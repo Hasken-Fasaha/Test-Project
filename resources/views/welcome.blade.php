@@ -642,58 +642,6 @@
 
         <br><br><br><br>
 
-
-        <main id="main">
-
-            <!-- ======= Services Section ======= -->
-            <section id="services" class="services">
-              <div class="container">
-        
-        
-                <div class="row mt-5">
-        
-                  <div class="col-lg-4 col-md-6 d-flex align-items-stretch p-3">
-                    <div class="icon-box w-100">
-                      <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                      <h4><a href="newstudent.php">New Applications</a></h4>
-                      <button id="home_new_applicant">Click here to register as new candidate</button>
-                    </div>
-                  </div>
-                  
-                  <div class="col-lg-4 col-md-6 d-flex align-items-stretch p-3">
-                    <div class="icon-box w-100">
-                      <div class="icon"><i class="bx bx-user"></i></div>
-                      <h4><a >Login As Student</a></h4>
-                      <button id="home_studentlogin">Click here to login as student</button>
-                    </div>
-                  </div>
-        
-                  <div class="col-lg-4 col-md-6 d-flex align-items-stretch p-3">
-                    <div class="icon-box w-100">
-                      <div class="icon"><i class="bx bx-user"></i></div>
-                      <h4><a   >Login As Staff</a></h4>
-                      <button id="home_stafflogin">Click here to login as ataff</button>
-                    </div>
-                  </div>
-        
-        
-                </div>
-        
-              </div>
-            </section><!-- End Services Section -->
-        
-        </main>
-        <!-- ======= Footer ======= -->
-        <?php //include("footer.php");
-        ?>
-        <!-- End Footer -->
-        <script> alert(hahhahhahha)</script>
-        <div id="preloader"></div>
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-                class="bi bi-arrow-up-short"></i></a>
-    </div>
-
-
         <div class="limit">
             <div class="login-container">
                 {{-- <div class="bb-login" style="padding-top: 0px; margin-top: 0px;">
@@ -713,7 +661,30 @@
                 <input class="input100" type="date" name="dob" placeholder="Date of Birth" required required>
                 {{-- <span class="bbb-input" data-placeholder="Date of Birth"> --}
 
-
             </div>
 
 
+
+            <div class="login-container-form-btn">
+                <div class="bb-login-form-btn">
+                    <div class="bb-form-bgbtn"></div>
+                    <button class="bb-form-btn" type="submit" name="login"> Proceed to Payment </button>
+
+                </div>
+            </div>
+
+            </form>
+        </div> --}
+            </div> --}}
+            </div>
+
+            <!-- ======= Footer ======= -->
+            <?php //include("footer.php");
+            ?>
+            <!-- End Footer -->
+
+            <div id="preloader"></div>
+            <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                    class="bi bi-arrow-up-short"></i></a>
+        </div>
+    @endsection

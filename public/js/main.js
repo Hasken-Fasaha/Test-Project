@@ -1,7 +1,4 @@
 $(document).ready(function() {
-
-   
-
     $('#addfaculty').click(function(e) {
         e.preventDefault()
         $('#facultyModal').modal('show');
