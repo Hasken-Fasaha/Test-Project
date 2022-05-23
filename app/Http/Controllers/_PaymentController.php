@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Exception;
 use Carbon\Carbon;
+use App\Models\Program;
 use App\Models\Admission;
 use Illuminate\Http\Request;
 use App\Models\TuitionDetail;
 use App\Models\TuitionDescription;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Program;
+use Unicodeveloper\Paystack\Facades\Paystack;
 
 class _PaymentController extends Controller
 {
@@ -19,6 +21,20 @@ class _PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function redirectToGateway()
+    {
+        try {
+            return Paystack::getAuthorizationUrl()->redirectNow();
+        } catch (\Exception $e) {
+            //return Redirect::back()->withMessage(['msg'=>'The paystack token has expired. Please refresh the page and try again.', 'type'=>'error']);
+            return Redirect::back()->with(
+                'error',
+                'The paystack token has expired. Please refresh the page and try again.'
+            );
+        }
+    }
+
     public function index(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -34,24 +50,53 @@ class _PaymentController extends Controller
         }
 
         try {
-            $admission = Admission::where('jamb_no', $request->jamb_no)
+            $admission = Admission /* select('id', 'first_name', 'surname')
+             -> */::where('jamb_no', $request->jamb_no)
+
                 ->where('accepted', 'No')
                 ->where('dob', $request->dob)
-                ->with('program')
-                ->first()
+                //->with('program')
+                ->with([
+                    'program' => function ($query) {
+                        $query->select('program_id', 'program_name');
+                    },
+                ])
+                ->first([
+                    'program_id',
+                    'first_name',
+                    'surname',
+                    'other_names',
+                    'jamb_no',
+                    'email',
+                    'jamb_score',
+                    'programme',
+                    'gender',
+                    'country',
+                    'state',
+                    'lga',
+                    'dob',
+                    'session',
+                    'programme',
+                    'date_of_admission',
+                    'registration_deadline',
+                ])
                 ->toArray();
+
+            //return $admission;
 
             $getProgram = TuitionDetail::where('status', 'active')
                 ->where('program', $admission['programme'])
                 ->get()
                 ->toArray();
 
+            //return $getProgram;
+
             /* $tuitionDescription = TuitionDescription::with('tuition') */
 
             $tuitionDescription = TuitionDescription::select('item', 'amount')
                 ->where('tuition_id', $getProgram[0]['id'])
-                ->get()
-                ->toArray();
+                ->get();
+            //->toArray();
 
             $tuitionSum = TuitionDescription::where(
                 'tuition_id',
@@ -86,10 +131,13 @@ class _PaymentController extends Controller
                 'tuitionDescription' => $tuitionDescription,
             ];
 
-            //return $tuition;
+            //return $tuitionDescription;
 
             //dd($tuition);
-            return view('pages.acceptance.index', compact('tuition'));
+            return view(
+                'pages.acceptance.index',
+                compact('tuition', 'tuitionDescription')
+            );
         } catch (Exception $error) {
             return $error->getMessage();
         }

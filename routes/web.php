@@ -259,6 +259,16 @@ Route::prefix('students')->group(function () {
         'acceptance.index'
     );
 
+    // Paystack API
+    /* Route::post('/pay', [
+        App\Http\Controllers\_PaymentController::class,
+        'redirectToGateway',
+    ])->name('pay');
+    Route::get('/payment/callback', [
+        App\Http\Controllers\_PaymentController::class,
+        'handleGatewayCallback',
+    ]); */
+
     Route::post('/application/store', [
         _ApplicationController::class,
         'store',
@@ -283,10 +293,10 @@ Route::prefix('student')->group(function () {
 
 //Paystack
 Route::post('/pay', [
-    App\Http\Controllers\PaymentController::class,
+    App\Http\Controllers\_PaymentController::class,
     'redirectToGateway',
 ])->name('pay');
-Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
+Route::get('/payment/callback', '_PaymentController@handleGatewayCallback');
 
 Route::get('/biodata', [_BiodataController::class, 'index'])->name('biodata');
 Route::get('/biodata/edit/{id}', [_BiodataController::class, 'edit']);
