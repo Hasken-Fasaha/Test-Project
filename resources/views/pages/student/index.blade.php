@@ -1,166 +1,180 @@
-@extends('layouts.layout')
+@extends('layouts.layout2')
 @section('content')
-    <!-- <body data-layout="horizontal" data-topbar="dark"> -->
+    <header id="header" class="fixed-top header-inner-pages">
+        <div class="container-fluid">
 
-        <!-- Begin page -->
-          <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
-            <div class="main-content" style="margin-left: 20px; margin-top:-70px;">
+            <div class="row justify-content-center">
+                <div class="col-xl-9 d-flex align-items-center justify-content-lg-between">
 
-                <div class="page-content">
-                    <div class="container-fluid">
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <a href="#" class="logo me-auto me-lg-0"><img src="{{ asset('assets2/img/ngit.png') }}" alt=""
+                            class="img-fluid"></a>
 
-                        <!-- start page title -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Dashboard</h4>
+                    <nav id="navbar" class="navbar order-last order-lg-0">
+                        <ul>
+                            <li><a class="nav-link scrollto active" href="#">Dashboard</a></li>
+                            <li><a class="nav-link scrollto" href="{{ url('http://127.0.0.1:8000/') }}" data-toggle="modal"
+                                    data-target="#logoutModal">Logout</a></li>
+                        </ul>
+                        <i class="bi bi-list mobile-nav-toggle"></i>
+                    </nav><!-- .navbar -->
 
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
-                                            <li class="breadcrumb-item active">Dashboard</li>
-                                        </ol>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end page title -->
-
-                        <div class="row">
-                            <div class="col-xl-4">
-                                <div class="card overflow-hidden">
-                                    <div class="bg-success bg-soft">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <div class="text-success p-3">
-                                                    <h5 class="text-success">Welcome Back !</h5>
-                                                    <p>Abubakar Abdullahi</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-5 align-self-end">
-                                                <img src="assets/images/profile-img.png" alt="" class="img-fluid">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body pt-0">
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <div class="avatar-md profile-user-wid mb-4">
-                                                    <img src="assets/images/users/avatar-1.jpg" alt="" class="img-thumbnail rounded-circle">
-                                                </div>
-                                                    
-                                            </div>
-
-                                            <div class="col-sm-8">
-                                                <div class="pt-4">
-
-                                                    <div class="row">
-                                                        <div class="col-4">
-                                                            <h5 class="font-size-15">200L</h5>
-                                                            <p class="text-muted mb-0">Level</p>
-                                                        </div>
-                                                        <div class="col-8">
-                                                            <h5 class="font-size-15">Computer Sci.</h5>
-                                                            <p class="text-muted mb-0">Department</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mt-4">
-                                                        <a href="javascript: void(0);" class="btn btn-success waves-effect waves-light btn-sm">Update Profile <i class="mdi mdi-arrow-right ms-1"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-xl-8">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="card mini-stats-wid">
-                                            <div class="card-body">
-                                                <div class="d-flex">
-                                                    <div class="flex-grow-1">
-                                                        <p class="text-muted fw-medium">Faculty</p>
-                                                        <h4 class="mb-0">Faculty of Science</h4>
-                                                    </div>
-
-                                                    <div class="flex-shrink-0 align-self-center">
-                                                        <div class="mini-stat-icon avatar-sm rounded-circle bg-success">
-                                                            <span class="avatar-title rounded-circle bg-success">
-                                                                <i class="bx bx-copy-alt font-size-24"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card mini-stats-wid">
-                                            <div class="card-body">
-                                                <div class="d-flex">
-                                                    <div class="flex-grow-1">
-                                                        <p class="text-muted fw-medium">Department</p>
-                                                        <h4 class="mb-0">Computer Science</h4>
-                                                    </div>
-
-                                                    <div class="flex-shrink-0 align-self-center ">
-                                                        <div class="avatar-sm rounded-circle bg-success mini-stat-icon">
-                                                            <span class="avatar-title rounded-circle bg-success">
-                                                                <i class="bx bx-archive-in font-size-24"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card mini-stats-wid">
-                                            <div class="card-body">
-                                                <div class="d-flex">
-                                                    <div class="flex-grow-1">
-                                                        <p class="text-muted fw-medium">Program</p>
-                                                        <h4 class="mb-0">Computer Science</h4>
-                                                    </div>
-
-                                                    <div class="flex-shrink-0 align-self-center">
-                                                        <div class="avatar-sm rounded-circle bg-success mini-stat-icon">
-                                                            <span class="avatar-title rounded-circle bg-success">
-                                                                <i class="bx bx-purchase-tag-alt font-size-24"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end row -->
-
-                            </div>
-                        </div>
-                        <!-- end row -->
-
-                        
-                    </div>
-                    <!-- container-fluid -->
                 </div>
-                <!-- End Page-content -->
+            </div>
+
+
+        </div>
+    </header>
+    <section id="services" class="services">
+
+        <div class="container">
+            <?php $getStudentInfo = Session::get('getStudentInfo'); ?>
+
+            @php
+                $fullName = strtoupper($getStudentInfo['surname'] ?? '') . ', ' . ucfirst($getStudentInfo['first_name'] ?? '') . ' ' . ucfirst($getStudentInfo['other_names'] ?? '');
+            @endphp
+            {{-- {{ $getStudentInfo }} --}}
+            <div class="alert alert-info p-2 mt-3"><img src="{{ asset('assets2/img/default.jpg') }}" name="image"
+                    id="image" style="border-radius: 80px; border: 3px solid #ccc; width: 60px; height: 60px" />&nbsp;&nbsp;
+                Hello! Welcome Back {{ $fullName }} <strong>({{ $getStudentInfo['registration_no'] ?? '' }})</strong>
+
+            </div>
 
 
 
+            <div class="row">
 
-        
 
-        <!-- Right bar overlay-->
-        <div class="rightbar-overlay"></div>
+                <div class="col-lg-3 col-md-6 align-items-stretch mt-3">
+                    <a href="{{-- {{ route('profile') }} --}}">
+                        <div class="icon-box pt-4 pb-3">
+                            <center>
+                                <div class="icon"><i class="bx bx-user"></i></div>
+                                <h6>Update Biodata</h6>
+                            </center>
+                        </div>
+                    </a>
+                </div>
 
-        <!-- JAVASCRIPT -->
- 
+
+                <div class="col-lg-3 col-md-6 align-items-stretch mt-3">
+                    <a href='#'>
+                        <div class="icon-box pt-4 pb-3">
+                            <center>
+                                <div class="icon"><i class="bx bx-tachometer"></i></div>
+                                <h6>Course Registration</h6>
+                            </center>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-md-6 align-items-stretch mt-3">
+                    <a href='#'>
+                        <div class="icon-box pt-4 pb-3">
+                            <center>
+                                <div class="icon"><i class="bx bx-file"></i></div>
+                                <h6>Print Acceptance Letter</h6>
+                            </center>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-md-6 align-items-stretch mt-3">
+                    <a href='#'>
+                        <div class="icon-box pt-4 pb-3">
+                            <center>
+                                <div class="icon"><i class="bx bx-file"></i></div>
+                                <h6>Print Registration Slip</h6>
+                            </center>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-md-6 align-items-stretch mt-3">
+                    <a href='#'>
+                        <div class="icon-box pt-4 pb-3">
+                            <center>
+                                <div class="icon"><i class="bx bx-file"></i></div>
+                                <h6>Print Semester Result</h6>
+                            </center>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-md-6 align-items-stretch mt-3">
+                    <a href='#'>
+                        <div class="icon-box pt-4 pb-3">
+                            <center>
+                                <div class="icon"><i class="bx bx-file"></i></div>
+                                <h6>Print Receipt</h6>
+                            </center>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 align-items-stretch mt-3">
+                    <a href='#'>
+                        <div class="icon-box pt-4 pb-3">
+                            <center>
+                                <div class="icon"><i class="bx bx-file"></i></div>
+                                <h6>Pay Accomodation Fee</h6>
+                            </center>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 align-items-stretch mt-3">
+                    <a href='#'>
+                        <div class="icon-box pt-4 pb-3">
+                            <center>
+                                <div class="icon"><i class="bx bx-file"></i></div>
+                                <h6>Pay Tuition Fee</h6>
+                            </center>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 align-items-stretch mt-3">
+                    <a href='#'>
+                        <div class="icon-box pt-4 pb-3">
+                            <center>
+                                <div class="icon"><i class="bx bx-file"></i></div>
+                                <h6>Print Accomodation Slip</h6>
+                            </center>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 align-items-stretch mt-3">
+                    <a href='#'>
+                        <div class="icon-box pt-4 pb-3">
+                            <center>
+                                <div class="icon"><i class="bx bx-file"></i></div>
+                                <h6>Print Receipt</h6>
+                            </center>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 align-items-stretch mt-3">
+                    <a href='#' data-toggle='modal' data-target='#ChangePasswordModal'>
+                        <div class="icon-box pt-4 pb-3">
+                            <center>
+                                <div class="icon"><i class="bx bx-arch"></i></div>
+                                <h6>Change Password</h6>
+                            </center>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-md-6 align-items-stretch mt-3">
+                    <a href="#" data-toggle="modal" data-target="#logoutModal">
+                        <div class="icon-box pt-4 pb-3">
+                            <center>
+                                <div class="icon"><i class="bx bx-slideshow"></i></div>
+                                <h6>Logout</h6>
+                            </center>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Services Section -->
 @endsection
-

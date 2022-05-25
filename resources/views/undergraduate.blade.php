@@ -564,7 +564,6 @@
                 <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
                     Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                 </div>
-                
             </div>
         </div>
     </div>
@@ -573,7 +572,7 @@
 </html> --}}
 @extends('layouts.layout2')
 @section('content')
-   {{--  <div class="modal fade" id="acceptAdmission" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="acceptAdmission" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header">
@@ -604,7 +603,7 @@
             </div>
 
         </div>
-    </div> --}}
+    </div>
     <div class="container">
         
         <header id="header" class="fixed-top header-inner-pages">
@@ -635,7 +634,7 @@
             </div>
           </header>
           <main id="main">
-        
+
             <!-- ======= Services Section ======= -->
             <section id="services" class="services">
               <div class="container">
@@ -643,30 +642,34 @@
         
                 <div class="row mt-5">
         
-                  <div class="col-lg-4 col-md-6 d-flex align-items-stretch p-3">
-                    <div class="icon-box w-100">
-                      <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                      <h4><a href="{{ route('undergraduate') }}">Application & Admission</a></h4>
-                      <p>Click here to apply or accept admission</p>
+                  <div class="col-lg-3 col-md-6 d-flex align-items-stretch p-3" style="height:250px">
+                    <div class="icon-box w-100 my-0"><a href="#" data-bs-toggle="modal"
+                        data-bs-target="#acceptAdmission">
+                      <div class="icon"><i class="bx bx-user"></i></div>
+                      <h5>Undergraduate</h5></a>
                     </div>
                   </div>
                   
-                  <div class="col-lg-4 col-md-6 d-flex align-items-stretch p-3">
+                  <div class="col-lg-3 col-md-6 d-flex align-items-stretch p-3" style="height:250px">
                     <div class="icon-box w-100">
                       <div class="icon"><i class="bx bx-user"></i></div>
-                      <h4><a href="#">Login As Student</a></h4>
-                      <p>Click here to login as student</p>
+                      <h5><a href="#">Postgraduate</a></h5>
                     </div>
                   </div>
         
-                  <div class="col-lg-4 col-md-6 d-flex align-items-stretch p-3">
+                  <div class="col-lg-3 col-md-6 d-flex align-items-stretch p-3" style="height:250px">
                     <div class="icon-box w-100">
                       <div class="icon"><i class="bx bx-user"></i></div>
-                      <h4><a href="#">Login As Staff</a></h4>
-                      <p>Click here to login as ataff</p>
+                      <h5><a href="#">Diploma</a></h5>
                     </div>
                   </div>
         
+                  <div class="col-lg-3 col-md-6 d-flex align-items-stretch p-3" style="height:250px">
+                    <div class="icon-box w-100">
+                      <div class="icon"><i class="bx bx-user"></i></div>
+                      <h5><a href="#">Distance Learning</a></h5>
+                    </div>
+                  </div>
         
                 </div>
         
@@ -674,7 +677,6 @@
             </section><!-- End Services Section -->
         
         </main>
-
         <br><br><br><br>
 
         <div class="limit">

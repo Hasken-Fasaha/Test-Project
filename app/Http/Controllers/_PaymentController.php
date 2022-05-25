@@ -8,6 +8,7 @@ use App\Models\Program;
 use App\Models\Admission;
 use Illuminate\Http\Request;
 use App\Models\TuitionDetail;
+use App\Models\PaymentHistory;
 use App\Models\TuitionDescription;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -22,9 +23,20 @@ class _PaymentController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function redirectToGateway()
+    public function redirectToGateway(Request $request)
     {
         try {
+            $paymentHistory = PaymentHistory::where(
+                'email',
+                $request->email
+            )->first();
+            //dd($paymentHistory);
+            if ($paymentHistory !== null) {
+                return Redirect::back()->with(
+                    'info',
+                    'You have already paid your tuition, log in to complete your registration.'
+                );
+            }
             return Paystack::getAuthorizationUrl()->redirectNow();
         } catch (\Exception $e) {
             //return Redirect::back()->withMessage(['msg'=>'The paystack token has expired. Please refresh the page and try again.', 'type'=>'error']);
@@ -35,10 +47,83 @@ class _PaymentController extends Controller
         }
     }
 
+    public function handleGatewayCallback()
+    {
+        try {
+            //DB::transaction(function () {
+            // Get payment details
+            $paymentDetails = Paystack::getPaymentData();
+            //return dd($paymentDetails);
+
+            $paymentHistory = new PaymentHistory();
+            $paymentHistory->jamb_no = $paymentDetails['data']['id'];
+            $paymentHistory->amount = $paymentDetails['data']['amount'] / 100;
+            $paymentHistory->date = date('Y-m-d');
+            $paymentHistory->email =
+                $paymentDetails['data']['customer']['email'];
+            $paymentHistory->tranx_id = $paymentDetails['data']['reference'];
+            $paymentHistory->status = $paymentDetails['data']['status'];
+            $paymentHistory->save();
+
+            //return $paymentHistory;
+
+            $admissionCount = Admission::where('accepted', 'Yes')->get();
+
+            //dd(count(collect($admissionCount)));
+
+            $admission = Admission::where(
+                'email',
+                $paymentHistory->email
+            )->first();
+
+            $getStudentInfo = $admission;
+
+            $admission->accepted = 'Yes';
+            $admission->registration_no =
+                'UG21/SCCS/' . (int) 1000 + count(collect($admissionCount)) + 1; // temporary
+            $admission->amount_paid = $paymentDetails['data']['amount'] / 100;
+            $admission->save();
+
+            /*  $admission->update([
+                    'accepted' => 'Yes',
+                    'registration_no' =>
+                        'UG21/SCCS/1004' /*  . count(collect($admission)) + 1, *,
+                    'amount' => $paymentDetails['data']['amount'] / 100,
+                ]); */
+
+            //return $admission;
+            // });
+
+            session()->put('getStudentInfo', $getStudentInfo);
+
+            //return redirect()->route('student', $getStudentInfo);
+
+            return redirect()
+                ->route('student')
+                ->with(
+                    'message',
+                    'Payment was successful, proceed to update your Biodata.' /* ['getStudentInfo' => $getStudentInfo] */
+                );
+
+            /* return Redirect::route('student', compact('admission'))->with(
+                'message',
+                'Payment was successfull.'
+            ); */
+            //return Redirect::back()->withMessage(['msg'=>'Payment was successfull.', 'type'=>'success']);
+        } catch (\Exception $e) {
+            //return $e->getMessage();
+            dd($e->getMessage());
+            return Redirect::back()->with(
+                'error',
+                'Something went wrong. ' . $e->getMessage()
+            );
+        }
+    }
+
     public function index(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'jamb_no' => 'required|min:10',
+            'jamb_no' => 'required|string',
             'dob' => 'required|date',
         ]);
 
@@ -50,9 +135,7 @@ class _PaymentController extends Controller
         }
 
         try {
-            $admission = Admission /* select('id', 'first_name', 'surname')
-             -> */::where('jamb_no', $request->jamb_no)
-
+            $admission = Admission::where('jamb_no', $request->jamb_no)
                 ->where('accepted', 'No')
                 ->where('dob', $request->dob)
                 //->with('program')
@@ -79,13 +162,18 @@ class _PaymentController extends Controller
                     'programme',
                     'date_of_admission',
                     'registration_deadline',
-                ])
-                ->toArray();
+                    'tuition_id',
+                ]);
+            /* ->toArray() */
 
             //return $admission;
 
             $getProgram = TuitionDetail::where('status', 'active')
-                ->where('program', $admission['programme'])
+                ->where(
+                    'program',
+                    /* $admission['programme'] */ $admission->programme
+                )
+                //->where('tuition_id', $admission['tuition_id'])
                 ->get()
                 ->toArray();
 
@@ -94,13 +182,15 @@ class _PaymentController extends Controller
             /* $tuitionDescription = TuitionDescription::with('tuition') */
 
             $tuitionDescription = TuitionDescription::select('item', 'amount')
-                ->where('tuition_id', $getProgram[0]['id'])
+                ->where('tuition_id', $admission['tuition_id'])
                 ->get();
             //->toArray();
 
+            //return $tuitionDescription;
+
             $tuitionSum = TuitionDescription::where(
                 'tuition_id',
-                $getProgram[0]['id']
+                $admission['tuition_id']
             )->sum(DB::raw('amount'));
 
             $today = Carbon::parse(date('Y-m-d'));
@@ -138,8 +228,12 @@ class _PaymentController extends Controller
                 'pages.acceptance.index',
                 compact('tuition', 'tuitionDescription')
             );
-        } catch (Exception $error) {
-            return $error->getMessage();
+        } catch (Exception $e) {
+            //return $error->getMessage();
+            return Redirect::back()->with(
+                'error',
+                'Something went wrong. ' . $e->getMessage()
+            );
         }
     }
 

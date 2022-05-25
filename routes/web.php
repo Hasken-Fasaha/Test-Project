@@ -132,6 +132,10 @@ Route::get('/student/delete/{id}', [
     'destroy',
 ])->name('studentdestroy');
 
+Route::get('/undergraduate', function () {
+    return view('undergraduate');
+})->name('undergraduate');
+
 Route::controller(_BiodataController::class)->group(function () {
     Route::get('bio_data', 'index')->name('bio_data.index');
     // Route::get('bio_data', 'index')->name('bio_data.index');
@@ -267,7 +271,7 @@ Route::prefix('students')->group(function () {
     Route::get('/payment/callback', [
         App\Http\Controllers\_PaymentController::class,
         'handleGatewayCallback',
-    ]); */
+    ])->name('handleGatewayCallback); */
 
     Route::post('/application/store', [
         _ApplicationController::class,
@@ -296,7 +300,16 @@ Route::post('/pay', [
     App\Http\Controllers\_PaymentController::class,
     'redirectToGateway',
 ])->name('pay');
-Route::get('/payment/callback', '_PaymentController@handleGatewayCallback');
+
+Route::get('/payment/callback', [
+    _PaymentController::class,
+    'handleGatewayCallback',
+])->name('pay.callback');
+
+/* Route::get(
+    '/payment/callback',
+    '_PaymentController@handleGatewayCallback'
+)->name('handleGatewayCallback'); */
 
 Route::get('/biodata', [_BiodataController::class, 'index'])->name('biodata');
 Route::get('/biodata/edit/{id}', [_BiodataController::class, 'edit']);

@@ -17,7 +17,8 @@
                             <option value="">--- Select ---</option>
                             @foreach ($tuition_details as $detail)
                                 <option value="{{ $detail->id }}">
-                                    {{ $detail->program }} => [{{ $detail->session }}]
+                                    {{ $detail->program }} | [{{ $detail->session }}] |
+                                    [{{ $detail->indigene_category }}]
                                 </option>
                             @endforeach
                         </select>

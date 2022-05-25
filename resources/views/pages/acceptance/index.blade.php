@@ -100,7 +100,8 @@
                                                         {{ $tuition['admission']['country'] ?? '' }}</font><br>
                                                     <font class='label'><strong>Tuition Fee Payable:</strong></font>
                                                     <font class="value">
-                                                        {{ number_format($tuition['tuitionSum'] ?? 0, 0) }}</font><br>
+                                                        &#8358;{{ number_format($tuition['tuitionSum'] ?? 0, 0) }}</font>
+                                                    <br>
                                                 </td>
                                             </tr>
                                         </table>
@@ -120,13 +121,13 @@
                                                     <tr align="center">
                                                         <td width="10%">{{ $key + 1 }}</td>
                                                         <td align="left">{{ $item['item'] }}</td>
-                                                        <td>{{ $item['amount'] }}</td>
+                                                        <td>&#8358;{{ number_format($item['amount'], 0) }}</td>
                                                     </tr>
                                                 @endforeach
                                                 <tr>
                                                     <td colspan="2"><strong>Total</strong></td>
                                                     <td align="center"><strong>
-                                                            {{ number_format($tuition['tuitionSum'] ?? 0, 0) }}</strong>
+                                                            &#8358;{{ number_format($tuition['tuitionSum'] ?? 0, 0) }}</strong>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -135,9 +136,11 @@
                                         <strong class="text-danger">*Note: </strong> If you have rejected your admission,
                                         you are not allowed to
                                         undo the operation. <br>
+
+
                                         <div class="col-md-8 p-2">
-                                            <form method="POST" action="{{ route('pay') }}">
-                                                @csrf
+                                            <form method="POST" action="{{-- {{ route('reject') }} --}}">
+
                                                 <div class="form-group pb-2">
                                                     <select name="accept" id="accept" class="form-control" required>
                                                         <option value="">--- Select ---</option>
@@ -147,76 +150,100 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <button type="button" class="btn btn-secondary">Back</button>
+                                                    {{-- <button type="button" onclick="back()" class="btn btn-secondary">Back</button> --}}
                                                     <button type="button" class="btn btn-success"
                                                         onclick="window.print()">Print</button>
-                                                    <button type="submit" class="btn btn-danger">Reject?</button>
-                                                    
-                                                    </form>
-                                                        <form id="paymentForm">
-                                                            <div class="form-group">
-                                                              
-                                                              <input type="hidden" class="form-control" id="email-address"  value="{{ $tuition['admission']['email'] ?? '' }}"  required />
-                                                            </div>
-                                                            <div class="form-group">
-                                                              <input class="form-control" type="hidden" id="amount" value="{{ $tuition['tuitionSum'] ?? 0 }}" required />
-                                                            </div>
-                                                            
-                                                            <div class="form-submit pt-2">
-                                                              <button type="submit" class="btn btn-info " onclick="payWithPaystack()"> Accept
-                                                                and Proceed to Payment? </button>
-                                                            </div>
-                                                          </form>
-                                                          <script src="https://js.paystack.co/v1/inline.js"></script> 
+                                                    <button type="button"
+                                                        class="btn btn-danger">Reject?</button>{{-- submit --}}
+
+                                                    <div class="form-group">
+
+                                                        <input type="hidden" class="form-control" id="email-address"
+                                                            value="{{ $tuition['admission']['email'] ?? '' }}"
+                                                            required />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control" type="hidden" id="amount"
+                                                            value="{{ $tuition['tuitionSum'] ?? 0 }}" required />
+                                                    </div>
+                                                    {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                    <div class="form-submit pt-2">
+                                                        <button type="submit" id="submit" class="btn btn-info "
+                                                            onclick="payWithPaystack()"> Accept
+                                                            and Proceed to Payment? </button>
+                                                    </div> --}}
+                                            </form>
+
+                                            <form method="POST" action="{{ route('pay') }}" accept-charset="UTF-8"
+                                                class="form-horizontal" role="form">
+                                                <div class="row" style="margin-bottom:40px;">
+                                                    <div class="col-md-8 col-md-offset-2">
+
+                                                        <input type="hidden" name="email"
+                                                            value="{{ $tuition['admission']['email'] ?? '' }}">
+                                                        <input type="hidden" name="orderID"
+                                                            value="{{ $tuition['admission']['jamb_no'] ?? '' }}">
+                                                        <input type="hidden" name="amount"
+                                                            value="{{ $tuition['tuitionSum'] * 100 }}">
+                                                        {{-- required in kobo --}}
+                                                        <input type="hidden" name="quantity" value="1">
+                                                        <input type="hidden" name="currency" value="NGN">
+                                                        <input type="hidden" name="metadata"
+                                                            value="{{ json_encode($array = ['key_name' => 'value']) }}">
+                                                        <input type="hidden" name="reference"
+                                                            value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
+
+                                                        {{ csrf_field() }} {{-- works only when using laravel 5.1, 5.2 --}}
+
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                                                        <p>
+                                                            <button class="btn btn-success btn-lg btn-block mt-2"
+                                                                id="submit" type="submit" value="Pay Now!">
+                                                                <i class="fa fa-plus-circle fa-lg"></i> Accept
+                                                                and Proceed to Payment?
+                                                            </button>
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                           
-
-                                            
-
+                                            </form>
                                         </div>
+
+
+
 
                     </div>
 
-                    </fieldset>
-                    </td>
-                    </tr>
-
-                    </table>
-
-
                 </div>
+
+                </fieldset>
+                </td>
+                </tr>
+
+                </table>
+
+
             </div>
         </div>
     </div>
     </div>
-
-    
+    </div>
 @endsection
 
 @section('scripts')
-<script>
-    const paymentForm = document.getElementById('paymentForm');
-paymentForm.addEventListener("submit", payWithPaystack, false);
-function payWithPaystack(e) {
-  e.preventDefault();
-  let handler = PaystackPop.setup({
-    key: 'pk_test_b4e57fc9060cd4f2d553bbaa2317ebfbbf2ca758', // Replace with your public key
-    email: document.getElementById("email-address").value,
-    amount: document.getElementById("amount").value * 100,
-    ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-    // label: "Optional string that replaces customer email"
-    onClose: function(){
-      alert('Window closed.');
-    },
-    callback: function(response){
-      let message = 'Payment complete! Reference: ' + response.reference;
-      //alert(message);
-      console.log(response.reference);
-      window.location="http://127.0.0.1:8000/profile"; //student-dashboard
-    }
-  });
-  handler.openIframe();
-}
-</script>
-    
+    <script>
+        $(document).ready(function() {
+            $('#accept').val('');
+            $('#submit').prop("disabled", true);
+            $('#accept').change(function() {
+                selectVal = $('#accept').val();
+                if (selectVal === '' || selectVal === 'No') {
+                    $('#submit').prop("disabled", true);
+                } else {
+                    $('#submit').prop("disabled", false);
+                }
+            })
+
+        });
+    </script>
 @endsection
