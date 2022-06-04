@@ -161,7 +161,7 @@ class _AdmissionController extends Controller
     public function delete(Request $request)
     {
         $id = $request->id;
-        $admission = Admission::find($id);
+        //$admission = Admission::find($id);
         Admission::destroy($id);
     }
 }
